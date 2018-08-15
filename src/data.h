@@ -21,8 +21,10 @@ typedef struct conjunto {
     node_t *head;
 } conjunto;
 
+void debug(conjunto *coords);
 conjunto *create();
 void insere(point_t xy, conjunto *coords);
 void printCJT(conjunto *coords);
 int sizeCJT(conjunto *coords);
-void freeMEM();
+void freeMEM(conjunto *coords);
+int isEmpty(conjunto *coords);

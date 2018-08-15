@@ -2,10 +2,15 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <getopt.h>
+#include <sys/time.h>
+#include <sys/resource.h>
 #include "main.h"
 #include "files.h"
 
 int main (int argc, char **argv) {
+
+    struct rusage usage;
+    struct timeval start, end;
 
     conjunto *P = create();
 
@@ -15,6 +20,9 @@ int main (int argc, char **argv) {
     int opt;
 
     opterr = 0;
+
+    getrusage(RUSAGE_SELF, &usage);
+    start = usage.ru_utime;
 
     while ((opt = getopt (argc, argv, "i:o:")) != -1) {
         switch (opt) {
@@ -37,11 +45,14 @@ int main (int argc, char **argv) {
         for (index = optind; index < argc; index++) printf ("Non-option argument %s\n", argv[index]);
     }
     openFILE(in_file,P);
-    if (DEBUG) { 
-        printCJT(P);
-        printf(" Xa = %hu\n", P->Xa);
-        printf(" Xb = %hu\n", P->Xb);
-        printf(" Pontos = %hu\n", P->Ncoords);
-    }
+    debug(P);
+    freeMEM(P);
+
+    getrusage(RUSAGE_SELF, &usage);
+    end = usage.ru_utime;
+
+    printf("\n Started at: %ld.%lds\n", start.tv_sec, start.tv_usec);
+    printf(" Ended at: %ld.%lds\n", end.tv_sec, end.tv_usec);
+
   return 0;
 }

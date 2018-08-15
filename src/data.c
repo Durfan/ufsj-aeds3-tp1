@@ -1,6 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
 #include "data.h"
+
+void debug(conjunto *coords) {
+    if (DEBUG) { 
+        printCJT(coords);
+        printf(" Xa = %hu\n", coords->Xa);
+        printf(" Xb = %hu\n", coords->Xb);
+        printf(" Pontos = %hu\n", coords->Ncoords);
+    }
+}
 
 conjunto *create() {
     conjunto *P = (conjunto*) malloc(sizeof(conjunto));
@@ -42,4 +52,20 @@ int sizeCJT(conjunto *coords) {
         size++;
     }
     return size;
+}
+
+void freeMEM(conjunto *coords) {
+    if (isEmpty(coords)) return;
+    node_t *node = coords->head;
+    node_t *del_node;
+    while ( node != NULL ) {
+        del_node = node;
+        node = node->next;
+        free(del_node);
+    }
+    free(coords);
+}
+
+int isEmpty(conjunto *coords) {
+    return (coords->head == NULL);
 }
