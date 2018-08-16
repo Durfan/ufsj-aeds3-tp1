@@ -1,7 +1,5 @@
 #include "main.h"
 
-#include <stdlib.h>
-
 int determinate(conjunto_t *P, node_t *C) {
    return (P->Xa*(- C->tupla.y) + 1 * (P->Xb*C->tupla.y));
 }

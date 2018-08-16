@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
 
 void debug(conjunto_t *P) {
     if (DEBUG) { 

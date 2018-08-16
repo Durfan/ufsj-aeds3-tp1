@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "data.h"
 #include "files.h"
 #include "hipercampo.h"
