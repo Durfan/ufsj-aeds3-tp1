@@ -38,7 +38,7 @@ Ver [CHANGELOG.md](CHANGELOG.md) para mais detalhes.
 ## Autor
 
 * **Pablo C.** - *need more coffee* - [Durfan](https://github.com/Durfan)
-* **AlexRoncalli** [AlexRoncalli](https://github.com/AlexRoncalli)
+* **AlexRoncalli** - - [AlexRoncalli](https://github.com/AlexRoncalli)
 
 ## Licença
 
