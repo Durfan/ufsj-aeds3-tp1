@@ -5,14 +5,13 @@
 #include <sys/time.h>
 #include <sys/resource.h>
 #include "main.h"
-#include "files.h"
 
 int main (int argc, char **argv) {
 
     struct rusage usage;
     struct timeval start, end;
 
-    conjunto *P = create();
+    conjunto_t *P = create();
 
     char *in_file = NULL;
     char *out_file = NULL;
@@ -46,6 +45,9 @@ int main (int argc, char **argv) {
     }
     openFILE(in_file,P);
     debug(P);
+
+    printf(COLOR_YELL"\n (TESTE)Brute Force usando Determinante: %d\n"COLOR_RESET, BF_determinante(P));
+
     freeMEM(P);
 
     getrusage(RUSAGE_SELF, &usage);

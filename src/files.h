@@ -1,3 +1,2 @@
-#include "data.h"
-
-void openFILE(char *file, conjunto *coords);
+void openFILE(char *file, conjunto_t *P);
+void saveFILE(char *file, conjunto_t *P);

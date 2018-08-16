@@ -1,30 +1,28 @@
 typedef unsigned short anchor_t;
-typedef unsigned short Ncoords_t;
-typedef int info;
-typedef struct point point_t;
-typedef struct node node_t;
+typedef unsigned short ncoords_t;
+typedef unsigned short ponto_t;
 
-struct point {
-    unsigned short x;
-    unsigned short y;
-};
+typedef struct tupla {
+    ponto_t x;
+    ponto_t y;
+} tupla_t;
 
-struct node {
-    point_t xy;
-    node_t *next;
-};
+typedef struct node {
+    tupla_t tupla;
+    struct node *next;
+} node_t;
 
 typedef struct conjunto {
     anchor_t Xa;
     anchor_t Xb;
-    Ncoords_t Ncoords;
+    ncoords_t ncoords;
     node_t *head;
-} conjunto;
+} conjunto_t;
 
-void debug(conjunto *coords);
-conjunto *create();
-void insere(point_t xy, conjunto *coords);
-void printCJT(conjunto *coords);
-int sizeCJT(conjunto *coords);
-void freeMEM(conjunto *coords);
-int isEmpty(conjunto *coords);
+void debug(conjunto_t *P);
+conjunto_t *create();
+void insere(tupla_t tupla, conjunto_t *P);
+void printCJT(conjunto_t *P);
+int sizeCJT(conjunto_t *P);
+void freeMEM(conjunto_t *P);
+int isEmpty(conjunto_t *P);

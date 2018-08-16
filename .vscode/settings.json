@@ -6,6 +6,7 @@
         "stdlib.h": "c",
         "ctype.h": "c",
         "getopt.h": "c",
-        "data.h": "c"
+        "data.h": "c",
+        "main.h": "c"
     }
 }
