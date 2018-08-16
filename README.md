@@ -14,7 +14,7 @@ Instalando:
 make
 ```
 
-Para remover os arquivos criados:
+Removendo:
 
 ```cmd
 make clean
