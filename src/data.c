@@ -23,6 +23,7 @@ void insere(tupla_t tupla, conjunto_t *P) {
     node_t *node = (node_t*) malloc(sizeof(node_t));
     if (!node) return;
     node->tupla = tupla;
+    node->tupla.inside = 0;
     node->next = P->head;
     P->head = node;
 }

@@ -45,6 +45,7 @@ int main (int argc, char **argv) {
     debug(P);
 
     printf(COLOR_YELL"\n (TESTE)Brute Force usando Determinante: %d\n"COLOR_RESET, BF_determinante(P));
+    findMAX(P);
 
     freeMEM(P);
 

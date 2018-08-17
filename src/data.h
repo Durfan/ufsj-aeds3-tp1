@@ -5,6 +5,7 @@ typedef unsigned short ponto_t;
 typedef struct tupla {
     ponto_t x;
     ponto_t y;
+    unsigned short inside;
 } tupla_t;
 
 typedef struct node {
