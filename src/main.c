@@ -42,11 +42,10 @@ int main (int argc, char **argv) {
         for (index = optind; index < argc; index++) printf ("Non-option argument %s\n", argv[index]);
     }
     openFILE(in_file,P);
+    
     debug(P);
 
-    printf(COLOR_YELL"\n (TESTE)Brute Force usando Determinante: %d\n"COLOR_RESET, BF_determinante(P));
-    findMAX(P);
-
+    TRIcount(P);
     freeMEM(P);
 
     getrusage(RUSAGE_SELF, &usage);

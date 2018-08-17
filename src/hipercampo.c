@@ -1,5 +1,7 @@
 #include "main.h"
 
+int max_tri = 0;
+
 int determinate(conjunto_t *P, node_t *C) {
    return (P->Xa*(- C->tupla.y) + 1 * (P->Xb*C->tupla.y));
 }
@@ -30,6 +32,7 @@ int isInside(conjunto_t *P, node_t *C, node_t *I) {
 
 int findMAX(conjunto_t *P) {
     int triangles;
+    conjunto_t *temp = create();
     node_t *C = P->head;
     node_t *I = P->head;
     tupla_t max = P->head->tupla;
@@ -38,12 +41,23 @@ int findMAX(conjunto_t *P) {
         if (triangles > C->tupla.inside ) max = C->tupla;
         triangles = 0;
         while (I != NULL) {
-            if (isInside(P,C,I)) triangles++;
+            if (!isInside(P,C,I)) {
+                triangles++;
+                insere(I->tupla,temp);
+            }
             I = I->next;
         }
         C->tupla.inside = triangles;
         C = C->next;
     }
-    printf(COLOR_YELL" (TESTE)Tupla com maior possibilidade: %hu,%hu"COLOR_RESET, max.x, max.y);
+    printf(COLOR_YELL" (TESTE)Tupla com maior possibilidade: %hu,%hu\n"COLOR_RESET, max.x, max.y);
+    printCJT(temp);
+    TRIcount(temp);
+    freeMEM(temp);
     return triangles;
+}
+
+int TRIcount(conjunto_t *T) {
+    if (isEmpty(T)) return 0;
+    findMAX(T);
 }
