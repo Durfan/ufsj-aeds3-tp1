@@ -42,4 +42,4 @@ Ver [CHANGELOG.md](CHANGELOG.md) para mais detalhes.
 
 ## Licença
 
-MIT License - ver [LICENSE.md](LICENSE.md) para mais detalhes.
+MIT License - ver [LICENSE](LICENSE) para mais detalhes.
