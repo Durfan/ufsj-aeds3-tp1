@@ -14,6 +14,7 @@ int isInside(conjunto_t *CJT, node_t *C, node_t *I) {
     float A1 = area (Ix, Iy, Bx, By, Cx, Cy);
     float A2 = area (Ax, Ay, Ix, Iy, Cx, Cy);
     float A3 = area (Ax, Ay, Bx, By, Ix, Iy);
+    printf(" %f\n", AT);
     return (AT == A1 + A2 + A3);
 }
 
@@ -34,6 +35,7 @@ int findMAX(conjunto_t *CJT) {
         }
         if (nTRI>=max) {
             max = nTRI;
+            printCJT(TMP);
             dump(CJT);
             cpyCJT(TMP,CJT);
         }
@@ -50,13 +52,12 @@ int findMAX(conjunto_t *CJT) {
     }
 }
 
-conjunto_t *cpyCJT(conjunto_t *FROM, conjunto_t *TO) {
+void cpyCJT(conjunto_t *FROM, conjunto_t *TO) {
     node_t *copy = FROM->head;
     while (copy != NULL) {
         insere(copy->tupla,TO);
         copy = copy->next;
     }
-    return TO;
 }
 
 void TRIcount(conjunto_t *CJT) {
