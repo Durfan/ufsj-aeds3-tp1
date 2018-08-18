@@ -1,7 +1,5 @@
-int determinate(conjunto_t *P, node_t *C);
-int BF_determinante(conjunto_t *P);
-
-float area(int x1, int y1, int x2, int y2, int x3, int y3);
-int isInside(conjunto_t *P, node_t *C, node_t *I);
-int findMAX(conjunto_t *P);
-int TRIcount(conjunto_t *T);
+float area(int Ax, int Ay, int Bx, int By, int Cx, int Cy);
+int isInside(conjunto_t *CJT, node_t *C, node_t *I);
+int findMAX(conjunto_t *CJT);
+conjunto_t *cpyCJT(conjunto_t *TO, conjunto_t *FROM);
+void TRIcount(conjunto_t *CJT);

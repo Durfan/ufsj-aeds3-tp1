@@ -1,6 +1,6 @@
 #include "main.h"
 
-void openFILE(char *file, conjunto_t *P) {
+void openFILE(char *file, conjunto_t *CJT) {
     FILE *fp = fopen(file, "r");
     if (fp == NULL) {
         printf(COLOR_RED" Erro ao abrir arquivo!\n"COLOR_RESET);
@@ -11,10 +11,10 @@ void openFILE(char *file, conjunto_t *P) {
     const size_t line_size = 300;
     char *line = malloc(line_size);
     while (fgets(line, line_size, fp) != NULL) {
-        if (Nline == 0) sscanf(line, "%hu %hu %hu", &P->ncoords, &P->Xa, &P->Xb);
+        if (Nline == 0) sscanf(line, "%hu %hu %hu", &CJT->ncoords, &CJT->Xa, &CJT->Xb);
         else {
             sscanf(line, "%hu %hu", &tupla.x, &tupla.y);
-            insere(tupla,P);
+            insere(tupla,CJT);
         }
         Nline++;
     }

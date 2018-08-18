@@ -46,7 +46,9 @@ int main (int argc, char **argv) {
     debug(P);
 
     TRIcount(P);
-    freeMEM(P);
+    printf(" Total = %d", P->total);
+    dump(P);
+    delCJT(P);
 
     getrusage(RUSAGE_SELF, &usage);
     end = usage.ru_utime;
