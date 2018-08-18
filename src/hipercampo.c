@@ -22,6 +22,8 @@ int findMAX(conjunto_t *CJT) {
     int nTRI = 0;
     int max = nTRI;
     conjunto_t *TMP = create();
+    TMP->Xa = CJT->Xa;
+    TMP->Xb = CJT->Xb;
     node_t *C = CJT->head;
     node_t *I = CJT->head->next;
 

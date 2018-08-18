@@ -9,6 +9,8 @@
         "data.h": "c",
         "main.h": "c",
         "time.h": "c",
-        "files.h": "c"
+        "files.h": "c",
+        "array": "c",
+        "string_view": "c"
     }
 }
