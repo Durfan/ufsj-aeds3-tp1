@@ -8,6 +8,7 @@
         "getopt.h": "c",
         "data.h": "c",
         "main.h": "c",
-        "time.h": "c"
+        "time.h": "c",
+        "files.h": "c"
     }
 }

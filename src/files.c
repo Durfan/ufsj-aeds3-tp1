@@ -22,6 +22,11 @@ void openFILE(char *file, conjunto_t *CJT) {
     fclose(fp);
 }
 
-void saveFILE(char *file, conjunto_t *P) {
-
+void saveFILE(char *file, conjunto_t *CJT) {
+    FILE *fp = fopen(file, "w+");
+    if (fp == NULL) {
+        printf(COLOR_RED" Erro ao criar arquivo!"COLOR_RESET);
+    return;
+    }
+    fprintf(fp, "%d", CJT->total);
 }
