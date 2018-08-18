@@ -6,6 +6,10 @@ Primeiro Trabalho Prático de AED's III.
 
 * GNU Compiler Collection [GCC](https://gcc.gnu.org/)
 
+Opicional(debug)
+
+* gnuplot [gnuplot](http://www.gnuplot.info/)
+
 ## Instalando/Removendo
 
 Instalando:
