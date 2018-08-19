@@ -2,10 +2,12 @@
 
 Primeiro Trabalho Prático de AED's III.
 
+![](https://i.imgur.com/p535u3B.png)
+
 ## Pre-requisitos
 
-* GNU Compiler Collection [GCC](https://gcc.gnu.org/)
-* Gnuplot [gnuplot](http://www.gnuplot.info/)
+* GNU Compiler Collection [https://gcc.gnu.org/](https://gcc.gnu.org/)
+* Gnuplot [http://www.gnuplot.info/](http://www.gnuplot.info/)
 
 ## Instalando/Removendo
 
