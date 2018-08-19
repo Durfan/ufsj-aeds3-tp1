@@ -2,6 +2,8 @@
 
 Primeiro Trabalho Prático de AED's III.
 
+![](https://i.imgur.com/p535u3B.png)
+
 ## Pre-requisitos
 
 * GNU Compiler Collection [GCC](https://gcc.gnu.org/)
