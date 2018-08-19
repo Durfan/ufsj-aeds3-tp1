@@ -3,7 +3,7 @@ TARGET	 = hcamp
 
 CC       = gcc
 # compiling flags here
-CFLAGS   = -g -std=c99 -Wall -I.
+CFLAGS   = -g -std=gnu99 -Wall -I.
 
 LINKER   = gcc
 # linking flags

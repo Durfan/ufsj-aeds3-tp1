@@ -29,4 +29,5 @@ void saveFILE(char *file, conjunto_t *CJT) {
     return;
     }
     fprintf(fp, "%d", CJT->total);
+    fclose(fp);
 }
