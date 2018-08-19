@@ -1,0 +1,23 @@
+### Changelog
+
+All notable changes to this project will be documented in this file.
+The format is based on Keep a Changelog and this project adheres to Semantic Versioning.
+
+## [0.0.1] - 2018-18-08
+
+# Added
+
+* 1nd Algoritimo para resolver o TP.
+* pipe para o gnuplot.
+
+# Fixed
+
+* ordenção da lista encadeada por mergesort.
+
+# Changed
+
+* estrutura de dados da entrada.
+
+# Removed
+
+* função que determinava se o ponto estava dentro de um triangulo através da area realativa aos pontos ABC.
