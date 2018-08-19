@@ -1,15 +1,16 @@
 #include "main.h"
  
-void MergeSort(node_t **headRef) {
+node_t *MergeSort(node_t **headRef) {
     node_t *head = *headRef;
-    node_t* a;
-    node_t* b;
+    node_t *a;
+    node_t *b;
     if ((head == NULL) || (head->next == NULL)) return;
 
     FrontBackSplit(head,&a,&b);
     MergeSort(&a);
     MergeSort(&b);
     *headRef = SortedMerge(a,b);
+    return headRef;
 }
 
 node_t *SortedMerge(node_t *a, node_t *b) {
@@ -18,7 +19,7 @@ node_t *SortedMerge(node_t *a, node_t *b) {
     if (a == NULL) return(b);
     else if (b==NULL) return(a);
 
-    if (a->tupla.y <= b->tupla.y) {
+    if (a->tupla.y >= b->tupla.y) {
         result = a;
         result->next = SortedMerge(a->next, b);
     }
@@ -46,4 +47,8 @@ void FrontBackSplit(node_t *source, node_t **frontRef, node_t **backRef) {
     *frontRef = source;
     *backRef = slow->next;
     slow->next = NULL;
+}
+
+void sort(conjunto_t *CJT) {
+    MergeSort(&CJT->head);
 }

@@ -33,18 +33,20 @@ int main (int argc, char **argv) {
             break;
             case '?':
                 if (optopt == 'i') printf ("Option -%c requires an argument.\n", optopt);
+                else if (optopt == 'o') printf ("Option -%c requires an argument.\n", optopt);
                 else if (isprint (optopt)) printf ("Unknown option `-%c'.\n", optopt);
                 else printf ("Unknown option character `\\x%x'.\n", optopt);
                 return 1;
             default:
                 exit(1);
         }
-        for (index = optind; index < argc; index++) printf ("Non-option argument %s\n", argv[index]);
     }
+    for (index = optind; index<argc; index++) printf ("Non-option argument %s\n", argv[index]);
     
     openFILE(in_file,P);
-    
+    sort(P);
     debug(P);
+
     TRIcount(P);
     printf(" Total = %d", P->total);
 

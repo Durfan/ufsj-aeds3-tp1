@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "data.h"
 #include "files.h"
 #include "hipercampo.h"
 #include "mergesort.h"
+#include "gnuplot.h"
 
 #define COLOR_RED   "\x1b[31m"
 #define COLOR_YELL  "\x1b[33m"

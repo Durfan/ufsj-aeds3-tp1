@@ -1,57 +1,52 @@
 #include "main.h"
 
-float area(int Ax, int Ay, int Bx, int By, int Cx, int Cy) {
-   return abs((Ax*(By-Cy) + Bx*(Cy-Ay)+ Cx*(Ay-By))/2.0);
+int isInside(conjunto_t *CJT, node_t *C, node_t *S) {
+    int Ax = CJT->Xa;
+    int Bx = CJT->Xb;
+    int Cx = C->tupla.x, Cy = C->tupla.y;
+    int Sx = S->tupla.x, Sy = S->tupla.y;
+    int AS_x = S->tupla.x-Ax;
+    int AS_y = S->tupla.y;
+
+    bool S_AB = (Bx-Ax)*AS_y*AS_x > 0;
+
+    if (((Cx-Ax)*AS_y - Cy*AS_x > 0 ) == S_AB) return false;
+    if (((Cx-Bx)*Sy - Cy*(Sx-Bx) > 0) != S_AB) return false;
+
+    return true;
 }
 
-int isInside(conjunto_t *CJT, node_t *C, node_t *I) {
-    anchor_t Ax = CJT->Xa, Ay = 0;
-    anchor_t Bx = CJT->Xb, By = 0;
-    anchor_t Cx = C->tupla.x, Cy = C->tupla.y;
-    anchor_t Ix = I->tupla.x, Iy = I->tupla.y;
-
-    float AT = area (Ax, Ay, Bx, By, Cx, Cy);
-    float A1 = area (Ix, Iy, Bx, By, Cx, Cy);
-    float A2 = area (Ax, Ay, Ix, Iy, Cx, Cy);
-    float A3 = area (Ax, Ay, Bx, By, Ix, Iy);
-    printf(" %f\n", AT);
-    return (AT == A1 + A2 + A3);
-}
-
-int findMAX(conjunto_t *CJT) {
-    int nTRI = 0;
-    int max = nTRI;
-    conjunto_t *TMP = create();
-    TMP->Xa = CJT->Xa;
-    TMP->Xb = CJT->Xb;
+int findMAX(conjunto_t *CJT, conjunto_t *AUX, conjunto_t *MAX) {
+    if (isEmpty(CJT)) return 0;
     node_t *C = CJT->head;
-    node_t *I = CJT->head->next;
+    node_t *S;
+    int dots = 0;
+    int max = dots;
 
     while (C != NULL) {
-        while (I != NULL) {
-            if (!isInside(CJT,C,I)) {
-                nTRI++;
-                insere(I->tupla,TMP);
+        S = CJT->head;
+        while (S != NULL) {
+            if (S != C && isInside(CJT,C,S)) {
+                dots++;
+                insere(S->tupla,AUX);
             }
-            I = I->next;
+            S = S->next;
         }
-        if (nTRI>=max) {
-            max = nTRI;
-            printCJT(TMP);
-            dump(CJT);
-            cpyCJT(TMP,CJT);
+        if (dots>=max) {
+            max = dots;
+            dump(MAX);
+            cpyCJT(AUX,MAX);
         }
-        dump(TMP);
-        nTRI = 0;
+        dots = 0;
+        dump(AUX);
         C = C->next;
     }
-    printf("\n Maximo: %d\n\n", max);
-    printCJT(CJT);
-    if (isEmpty(CJT)) return 0;
-    else {
-        CJT->total++;
-        findMAX(CJT);
-    }
+    printCJT(MAX);
+    dump(CJT);
+    cpyCJT(MAX,CJT);
+    CJT->total++;
+    
+    return findMAX(CJT,AUX,MAX);
 }
 
 void cpyCJT(conjunto_t *FROM, conjunto_t *TO) {
@@ -63,12 +58,53 @@ void cpyCJT(conjunto_t *FROM, conjunto_t *TO) {
 }
 
 void TRIcount(conjunto_t *CJT) {
-    findMAX(CJT);
+    conjunto_t *AUX = create();
+    conjunto_t *MAX = create();
+    AUX->Xa = CJT->Xa;
+    AUX->Xb = CJT->Xb;
+    MAX->Xa = CJT->Xa;
+    MAX->Xb = CJT->Xb;
+
+    sort(CJT);
+    findMAX(CJT,AUX,MAX);
+    
+    dump(AUX);
+    dump(MAX);
+    delCJT(AUX);
+    delCJT(MAX);
 }
 
 // Dev. Depreciado ------------------------------------
+/*
+float area(int Ax, int Ay, int Bx, int By, int Cx, int Cy) {
+   return ((Ax*(By-Cy) + Bx*(Cy-Ay) + Cx*(Ay-By))/2.0);
+}
 
-/* int determinate(conjunto_t *P, node_t *C) {
+int isInside(conjunto_t *CJT, node_t *C, node_t *S) {
+    anchor_t Ax = CJT->Xa, Ay = 0;
+    anchor_t Bx = CJT->Xb, By = 0;
+    anchor_t Cx = C->tupla.x, Cy = C->tupla.y;
+    anchor_t Ix = I->tupla.x, Iy = I->tupla.y;
+
+    float AT = area(Ax, Ay, Bx, By, Cx, Cy);
+    float A1 = area(Ix, Iy, Bx, By, Cx, Cy);
+    float A2 = area(Ax, Ay, Ix, Iy, Cx, Cy);
+    float A3 = area(Ax, Ay, Bx, By, Ix, Iy);
+
+    printf(" A = %d,%d\n", Ax,Ay);
+    printf(" B = %d,%d\n", Bx,By);
+    printf(" C = %d,%d\n", Cx,Cy);
+    printf(" I = %d,%d : %d\n", Ix, Iy, (AT==A1+A2+A3) ? 1:0);
+    printf(" AT = %f\n", AT);
+    printf(" A1 = %f\n", A1);
+    printf(" A2 = %f\n", A2);
+    printf(" A3 = %f\n", A3);
+    printf(" A1+A2+A3 = %f\n\n", A1+A2+A3);
+
+    return (AT == A1 + A2 + A3);
+}
+
+int determinate(conjunto_t *P, node_t *C) {
    return (P->Xa*(- C->tupla.y) + 1 * (P->Xb*C->tupla.y));
 }
 
@@ -81,4 +117,5 @@ int BF_determinante(conjunto_t *P) {
         C = C->next;
     }
     return triangles;
-} */
+}
+ */

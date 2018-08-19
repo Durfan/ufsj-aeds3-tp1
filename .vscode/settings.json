@@ -11,6 +11,9 @@
         "time.h": "c",
         "files.h": "c",
         "array": "c",
-        "string_view": "c"
+        "string_view": "c",
+        "mergesort.h": "c",
+        "limits": "c",
+        "*.tcc": "c"
     }
 }
