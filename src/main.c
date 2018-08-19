@@ -44,7 +44,7 @@ int main (int argc, char **argv) {
     for (index = optind; index<argc; index++) printf ("Non-option argument %s\n", argv[index]);
     
     openFILE(in_file,P);
-
+    plotGraph(P);
     debug(P);
 
     TRIcount(P);

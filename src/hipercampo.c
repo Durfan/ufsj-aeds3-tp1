@@ -44,7 +44,6 @@ int findMAX(conjunto_t *CJT, conjunto_t *AUX, conjunto_t *MAX, conjunto_t *plot)
         C = C->next;
     }
     if (win != NULL) winPLOT(win,plot);
-    printCJT(MAX);
     dump(CJT);
     cpyCJT(MAX,CJT);
     CJT->total++;
@@ -73,7 +72,6 @@ void TRIcount(conjunto_t *CJT) {
 
     sort(CJT);
     findMAX(CJT,AUX,MAX,plot);
-    printCJT(plot);
     plotGraph(plot);
     
     dump(AUX);
