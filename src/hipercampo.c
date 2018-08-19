@@ -16,8 +16,10 @@ int isInside(conjunto_t *CJT, node_t *C, node_t *S) {
     return true;
 }
 
-int findMAX(conjunto_t *CJT, conjunto_t *AUX, conjunto_t *MAX, conjunto_t *plot) {
+int findMAX(conjunto_t *CJT, conjunto_t *plot) {
     if (isEmpty(CJT)) return 0;
+    conjunto_t *AUX = create();
+    conjunto_t *MAX = create();
     node_t *C = CJT->head;
     node_t *S;
     node_t *win = NULL;
@@ -43,12 +45,17 @@ int findMAX(conjunto_t *CJT, conjunto_t *AUX, conjunto_t *MAX, conjunto_t *plot)
         dump(AUX);
         C = C->next;
     }
+
     if (win != NULL) winPLOT(win,plot);
+
     dump(CJT);
     cpyCJT(MAX,CJT);
+    dump(MAX);
     CJT->total++;
     
-    return findMAX(CJT,AUX,MAX,plot);
+    delCJT(AUX);
+    delCJT(MAX);
+    return findMAX(CJT,plot);
 }
 
 void cpyCJT(conjunto_t *FROM, conjunto_t *TO) {
@@ -60,24 +67,15 @@ void cpyCJT(conjunto_t *FROM, conjunto_t *TO) {
 }
 
 void TRIcount(conjunto_t *CJT) {
-    conjunto_t *AUX = create();
-    conjunto_t *MAX = create();
     conjunto_t *plot = create();
-    AUX->Xa = CJT->Xa;
-    AUX->Xb = CJT->Xb;
-    MAX->Xa = CJT->Xa;
-    MAX->Xb = CJT->Xb;
     plot->Xa = CJT->Xa;
     plot->Xb = CJT->Xb;
 
-    sort(CJT);
-    findMAX(CJT,AUX,MAX,plot);
+    findMAX(CJT,plot);
     plotGraph(plot);
-    
-    dump(AUX);
-    dump(MAX);
-    delCJT(AUX);
-    delCJT(MAX);
+
+    dump(plot);
+    delCJT(plot);
 }
 
 void winPLOT(node_t *win, conjunto_t *plot) {
