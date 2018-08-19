@@ -5,6 +5,7 @@ Primeiro Trabalho Prático de AED's III.
 ## Pre-requisitos
 
 * GNU Compiler Collection [GCC](https://gcc.gnu.org/)
+* Gnuplot [gnuplot](http://www.gnuplot.info/)
 
 ## Instalando/Removendo
 
