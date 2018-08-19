@@ -45,8 +45,6 @@ int main (int argc, char **argv) {
     
     openFILE(in_file,P);
 
-    plotGraph(P);
-
     debug(P);
 
     TRIcount(P);
@@ -63,5 +61,5 @@ int main (int argc, char **argv) {
     printf("\n Started at: %ld.%lds\n", start.tv_sec, start.tv_usec);
     printf(" Ended at: %ld.%lds\n", end.tv_sec, end.tv_usec);
 
-  return 0;
+  return 0; 
 }
