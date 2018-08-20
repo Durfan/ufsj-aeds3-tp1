@@ -22,6 +22,7 @@
         "unordered_map": "c",
         "vector": "c",
         "initializer_list": "c",
-        "chrono": "c"
+        "chrono": "c",
+        "utility": "c"
     }
 }

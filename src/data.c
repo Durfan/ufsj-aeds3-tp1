@@ -52,7 +52,7 @@ int sizeCJT(conjunto_t *CJT) {
     return size;
 }
 
-void dump(conjunto_t *CJT) {
+void dump(conjunto_t *CJT, int del) {
     if (isEmpty(CJT)) return;
     node_t *del_node;
     while (CJT->head != NULL) {
@@ -60,10 +60,7 @@ void dump(conjunto_t *CJT) {
         CJT->head = CJT->head->next;
         free(del_node);
     }
-}
-
-void delCJT(conjunto_t *CJT) {
-    free(CJT);
+    if (del) free(CJT);
 }
 
 int isEmpty(conjunto_t *CJT) {

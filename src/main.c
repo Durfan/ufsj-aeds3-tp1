@@ -1,5 +1,4 @@
 #include "main.h"
-#include <ctype.h>
 #include <getopt.h>
 #include <stdint.h>
 #include <sys/time.h>
@@ -44,17 +43,16 @@ int main (int argc, char **argv) {
     }
     for (index = optind; index<argc; index++) printf (" Non-option argument %s\n", argv[index]);
     
+    chkFILE(in_file);
     openFILE(in_file,P);
     plotGraph(P);
     debug(P);
 
     TRIcount(P);
-    printf(" Total = %d", P->total);
 
     saveFILE(out_file,P);
 
-    dump(P);
-    delCJT(P);
+    dump(P,1);
 
     gettimeofday (&end, NULL);
     getrusage(RUSAGE_SELF, &ru);

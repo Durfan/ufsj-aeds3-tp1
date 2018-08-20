@@ -38,23 +38,21 @@ int findMAX(conjunto_t *CJT, conjunto_t *plot) {
         if (dots>=moredots) {
             moredots = dots;
             win = C;
-            dump(MAX);
+            dump(MAX,0);
             cpyCJT(AUX,MAX);
         }
         dots = 0;
-        dump(AUX);
+        dump(AUX,0);
         C = C->next;
     }
 
     if (win != NULL) winPLOT(win,plot);
 
-    dump(CJT);
+    dump(CJT,0);
     cpyCJT(MAX,CJT);
-    dump(MAX);
+    dump(MAX,1);
     CJT->total++;
     
-    delCJT(AUX);
-    delCJT(MAX);
     return findMAX(CJT,plot);
 }
 
@@ -73,9 +71,8 @@ void TRIcount(conjunto_t *CJT) {
 
     findMAX(CJT,plot);
     plotGraph(plot);
+    dump(plot,1);
 
-    dump(plot);
-    delCJT(plot);
 }
 
 void winPLOT(node_t *win, conjunto_t *plot) {
