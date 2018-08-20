@@ -2,15 +2,15 @@
 
 void plotGraph(conjunto_t *CJT) {
     FILE *temp = fopen("data.temp", "w");
-    FILE *gnuplot = popen("gnuplot -persistent", "w");
+    FILE *gnuplot = popen("gnuplot", "w");
 
     node_t *read = CJT->head;
     while (read != NULL) {
         fprintf(temp, "%hu 0\n", CJT->Xa);
-        fprintf(temp, "%hu %hu\n\n", read->tupla.x, read->tupla.y);
+        fprintf(temp, "%hu %hu\n\n", read->ponto.x, read->ponto.y);
 
         fprintf(temp, "%hu 0\n", CJT->Xb);
-        fprintf(temp, "%hu %hu\n\n", read->tupla.x, read->tupla.y);
+        fprintf(temp, "%hu %hu\n\n", read->ponto.x, read->ponto.y);
         read = read->next;
     }
     fclose(temp);

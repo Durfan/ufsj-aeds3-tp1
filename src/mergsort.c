@@ -1,6 +1,6 @@
 #include "main.h"
  
-node_t *MergeSort(node_t **headRef) {
+void MergeSort(node_t **headRef) {
     node_t *head = *headRef;
     node_t *a;
     node_t *b;
@@ -10,7 +10,6 @@ node_t *MergeSort(node_t **headRef) {
     MergeSort(&a);
     MergeSort(&b);
     *headRef = SortedMerge(a,b);
-    return headRef;
 }
 
 node_t *SortedMerge(node_t *a, node_t *b) {
@@ -19,13 +18,13 @@ node_t *SortedMerge(node_t *a, node_t *b) {
     if (a == NULL) return(b);
     else if (b==NULL) return(a);
 
-    if (a->tupla.y >= b->tupla.y) {
-        result = a;
-        result->next = SortedMerge(a->next, b);
+    if (a->ponto.y >= b->ponto.y) {
+        result = a; 
+        result->next = SortedMerge(a->next,b);
     }
     else {
         result = b;
-        result->next = SortedMerge(a, b->next);
+        result->next = SortedMerge(a,b->next);
     }
     return(result);
 }

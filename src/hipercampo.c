@@ -3,10 +3,10 @@
 int isInside(conjunto_t *CJT, node_t *C, node_t *S) {
     int Ax = CJT->Xa;
     int Bx = CJT->Xb;
-    int Cx = C->tupla.x, Cy = C->tupla.y;
-    int Sx = S->tupla.x, Sy = S->tupla.y;
-    int AS_x = S->tupla.x-Ax;
-    int AS_y = S->tupla.y;
+    int Cx = C->ponto.x, Cy = C->ponto.y;
+    int Sx = S->ponto.x, Sy = S->ponto.y;
+    int AS_x = S->ponto.x-Ax;
+    int AS_y = S->ponto.y;
 
     bool S_AB = (Bx-Ax)*AS_y*AS_x > 0;
 
@@ -23,7 +23,7 @@ int findMAX(conjunto_t *CJT, conjunto_t *plot) {
     node_t *C = CJT->head;
     node_t *S;
     node_t *win = NULL;
-    int dots = 0;
+    int dots = 0; 
     int moredots = dots;
 
     while (C != NULL) {
@@ -31,11 +31,11 @@ int findMAX(conjunto_t *CJT, conjunto_t *plot) {
         while (S != NULL) {
             if (S != C && isInside(CJT,C,S)) {
                 dots++;
-                insere(S->tupla,AUX);
+                insere(S->ponto,AUX);
             }
             S = S->next;
         }
-        if (dots>=moredots) {
+        if (dots>moredots) {
             moredots = dots;
             win = C;
             dump(MAX,0);
@@ -50,7 +50,9 @@ int findMAX(conjunto_t *CJT, conjunto_t *plot) {
 
     dump(CJT,0);
     cpyCJT(MAX,CJT);
+    
     dump(MAX,1);
+    dump(AUX,1);
     CJT->total++;
     
     return findMAX(CJT,plot);
@@ -59,7 +61,7 @@ int findMAX(conjunto_t *CJT, conjunto_t *plot) {
 void cpyCJT(conjunto_t *FROM, conjunto_t *TO) {
     node_t *copy = FROM->head;
     while (copy != NULL) {
-        insere(copy->tupla,TO);
+        insere(copy->ponto,TO);
         copy = copy->next;
     }
 }
@@ -76,41 +78,43 @@ void TRIcount(conjunto_t *CJT) {
 }
 
 void winPLOT(node_t *win, conjunto_t *plot) {
-    insere(win->tupla,plot);
+    insere(win->ponto,plot);
 }
 
 // Dev. Depreciado ------------------------------------
-/*
+
 float area(int Ax, int Ay, int Bx, int By, int Cx, int Cy) {
    return ((Ax*(By-Cy) + Bx*(Cy-Ay) + Cx*(Ay-By))/2.0);
 }
 
-int isInside(conjunto_t *CJT, node_t *C, node_t *S) {
+int isInside_byarea(conjunto_t *CJT, node_t *C, node_t *S) {
     anchor_t Ax = CJT->Xa, Ay = 0;
     anchor_t Bx = CJT->Xb, By = 0;
-    anchor_t Cx = C->tupla.x, Cy = C->tupla.y;
-    anchor_t Ix = I->tupla.x, Iy = I->tupla.y;
+    anchor_t Cx = C->ponto.x, Cy = C->ponto.y;
+    anchor_t Sx = S->ponto.x, Sy = S->ponto.y;
 
     float AT = area(Ax, Ay, Bx, By, Cx, Cy);
-    float A1 = area(Ix, Iy, Bx, By, Cx, Cy);
-    float A2 = area(Ax, Ay, Ix, Iy, Cx, Cy);
-    float A3 = area(Ax, Ay, Bx, By, Ix, Iy);
+    float A1 = area(Sx, Sy, Bx, By, Cx, Cy);
+    float A2 = area(Ax, Ay, Sx, Sy, Cx, Cy);
+    float A3 = area(Ax, Ay, Bx, By, Sx, Sy);
 
+    /*     
     printf(" A = %d,%d\n", Ax,Ay);
     printf(" B = %d,%d\n", Bx,By);
     printf(" C = %d,%d\n", Cx,Cy);
-    printf(" I = %d,%d : %d\n", Ix, Iy, (AT==A1+A2+A3) ? 1:0);
+    printf(" I = %d,%d : %d\n", Sx, Sy, (AT==A1+A2+A3) ? 1:0);
     printf(" AT = %f\n", AT);
     printf(" A1 = %f\n", A1);
     printf(" A2 = %f\n", A2);
     printf(" A3 = %f\n", A3);
     printf(" A1+A2+A3 = %f\n\n", A1+A2+A3);
+    */
 
     return (AT == A1 + A2 + A3);
 }
 
 int determinate(conjunto_t *P, node_t *C) {
-   return (P->Xa*(- C->tupla.y) + 1 * (P->Xb*C->tupla.y));
+   return (P->Xa*(- C->ponto.y) + 1 * (P->Xb*C->ponto.y));
 }
 
 int BF_determinante(conjunto_t *P) {
@@ -123,4 +127,3 @@ int BF_determinante(conjunto_t *P) {
     }
     return triangles;
 }
- */

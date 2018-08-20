@@ -6,64 +6,46 @@ void chkFILE(char *file) {
         printf(COLOR_RED" Erro ao abrir arquivo!\n"COLOR_RESET);
         return;
     }
-    ncoords_t ncoords;
-    tupla_t tupla;
+    bool erro = false;
+    ncoords_t NC;
+    tupla_t ponto;
     anchor_t Xa;
     anchor_t Xb;
     unsigned short Nline = 0;
     const size_t line_size = 300;
     char *line = malloc(line_size);
     while (fgets(line, line_size, fp) != NULL) {
-        if (Nline == 0) {
-            sscanf(line, "%hu %hu %hu", &ncoords, &Xa, &Xb);
-            if (!NisValide(ncoords)) showerro(0,Nline);
-            if (!PisValide(Xa)) showerro(1,Nline);
-            if (!PisValide(Xb)) showerro(2,Nline);
-        }
-        else {
-            sscanf(line, "%hu %hu", &tupla.x, &tupla.y);
-            if (!PisValide(tupla.x)) showerro(3,Nline);
-            if (!PisValide(tupla.y)) showerro(4,Nline);
-        }
-        Nline++;
+        line[strcspn(line, "\n")] = 0;
+            if (Nline == 0) {
+                sscanf(line, "%hu %hu %hu", &NC, &Xa, &Xb);
+                if (!NisValide(NC)) { erro = true; showerro(0,Nline); }
+                if (!PisValide(Xa)) { erro = true; showerro(1,Nline); }
+                if (!PisValide(Xb)) { erro = true; showerro(2,Nline); }
+            }
+            else {
+                sscanf(line, "%hu %hu", &ponto.x, &ponto.y);
+                if (!PisValide(ponto.x)) { erro = true; showerro(3,Nline); }
+                if (!PisValide(ponto.y)) { erro = true; showerro(4,Nline); }
+            }
+            Nline++;
     }
     free(line);
     fclose(fp);
+    printf(" Linhas: %d\n", Nline);
+    if (Nline-1>NC) { erro = true; showerro(5,Nline); }
+    if (erro) ask();
 }
 
 void showerro(int erro, int line) {
-    switch (erro) {
-        case (0):
-            printf(COLOR_RED" ERRO! Linha %d => Numero de coordenadas invalido.\n"COLOR_RESET, line);
-            ask();
-        break;
-        case (1):
-            printf(COLOR_RED" ERRO! Linha %d => Ancora Xa invalida.\n"COLOR_RESET, line);
-            ask();
-        break;
-        case (2):
-            printf(COLOR_RED" ERRO! Linha %d => Ancora Xb invalida.\n"COLOR_RESET, line);
-            ask();
-        break;
-        case (3):
-            printf(COLOR_RED" ERRO! Linha %d => Ponto X invalido.\n"COLOR_RESET, line);
-            ask();
-        break;
-        case (4):
-            printf(COLOR_RED" ERRO! Linha %d => Ponto Y invalido.\n"COLOR_RESET, line);
-            ask();
-        break;
-        default:
-            printf(COLOR_RED" ERRO! Linha %d => Desconhecido.\n"COLOR_RESET, line);
-            ask();
-        break;
-    }
+    char *s_erros[] = {"Maximo de coordenadas","Ancora Xa",
+                        "Ancora Xb","Ponto X","Ponto Y",
+                        "Pontos excedidos"};
+    printf(COLOR_RED" ERRO: %s. => Linha %d\n"COLOR_RESET, s_erros[erro], line+1);
 }
 
 void ask() {
     char q;
     printf(" Continuar? (s/n): ");
-    getchar();
     q = getchar();
     if (q == 'n') exit(1);
 }

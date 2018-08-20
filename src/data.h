@@ -1,25 +1,23 @@
 typedef unsigned short anchor_t;
 typedef unsigned short ncoords_t;
 typedef unsigned short ponto_t;
-typedef unsigned short inTRI_t;
 
 typedef struct tupla {
     ponto_t x;
     ponto_t y;
-    inTRI_t nTRI;
 } tupla_t;
 
 typedef struct node {
-    tupla_t tupla;
+    tupla_t ponto;
     struct node *next;
 } node_t;
 
 typedef struct conjunto {
-    int total;
+    node_t *head;
     anchor_t Xa;
     anchor_t Xb;
     ncoords_t ncoords;
-    node_t *head;
+    int total;
 } conjunto_t;
 
 void debug(conjunto_t *CJT);

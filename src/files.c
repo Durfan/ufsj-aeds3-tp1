@@ -6,19 +6,20 @@ void openFILE(char *file, conjunto_t *CJT) {
         printf(COLOR_RED" Erro ao abrir arquivo!\n"COLOR_RESET);
         return;
     }
-    tupla_t tupla;
+    tupla_t ponto;
     unsigned short Nline = 0;
-    const size_t line_size = 300;
-    char *line = malloc(line_size);
-    while (fgets(line, line_size, fp) != NULL) {
+    char *line = NULL;
+    size_t len = 0;
+    ssize_t read;
+    while ((read = getline(&line, &len, fp)) != -1) {
+        line[strcspn(line, "\n")] = 0;
         if (Nline == 0) sscanf(line, "%hu %hu %hu", &CJT->ncoords, &CJT->Xa, &CJT->Xb);
         else {
-            sscanf(line, "%hu %hu", &tupla.x, &tupla.y);
-            insere(tupla,CJT);
+            sscanf(line, "%hu %hu", &ponto.x, &ponto.y);
+            insere(ponto,CJT);
         }
         Nline++;
     }
-    free(line);
     fclose(fp);
 }
 
