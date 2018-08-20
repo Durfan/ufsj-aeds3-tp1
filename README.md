@@ -36,7 +36,7 @@ make clean
 
 ## Versões
 
-Ver [CHANGELOG.md](CHANGELOG.md) para mais detalhes.
+Ver [CHANGELOG](CHANGELOG.md) para mais detalhes.
 
 ## Autor
 
