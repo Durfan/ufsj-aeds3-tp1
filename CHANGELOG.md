@@ -7,7 +7,7 @@ The format is based on Keep a Changelog and this project adheres to Semantic Ver
 
 ### Added
 
-* funcap para validar as entradas.
+* funcao para validar as entradas.
 
 ## [0.0.1] - 2018-18-08
 
