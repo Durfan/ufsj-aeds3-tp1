@@ -25,7 +25,7 @@ int findMAX(conjunto_t *CJT, conjunto_t *plot) {
     int dots = 0; 
     int moredots = dots;
 
-    while (Q != NULL) {
+     do {
         R = CJT->head;
         while (R != NULL) {
             if (PQR(CJT,Q,R)) {
@@ -34,7 +34,7 @@ int findMAX(conjunto_t *CJT, conjunto_t *plot) {
             }
             R = R->next;
         }
-        if (dots>moredots) {
+        if (dots>=moredots) {
             moredots = dots;
             win = Q;
             dump(MAX,0);
@@ -43,9 +43,9 @@ int findMAX(conjunto_t *CJT, conjunto_t *plot) {
         dots = 0;
         dump(AUX,0);
         Q = Q->next;
-    }
+    } while (Q != NULL);
 
-    if (win != NULL) winPLOT(win,plot);
+    if (win != NULL) insere(win->p,plot);
 
     dump(CJT,0);
     cpyCJT(MAX,CJT);
@@ -77,8 +77,4 @@ void soluciona(conjunto_t *CJT) {
 
 void solucao(conjunto_t *CJT) {
     printf(COLOR_YELL" Triangulos possiveis: %d\n"COLOR_RESET, CJT->total);
-}
-
-void winPLOT(node_t *win, conjunto_t *plot) {
-    insere(win->p,plot);
 }

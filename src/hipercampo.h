@@ -3,4 +3,3 @@ int findMAX(conjunto_t *CJT, conjunto_t *plot);
 void cpyCJT(conjunto_t *TO, conjunto_t *FROM);
 void soluciona(conjunto_t *CJT);
 void solucao(conjunto_t *CJT);
-void winPLOT(node_t *win, conjunto_t *plot);
