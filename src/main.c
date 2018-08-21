@@ -12,6 +12,8 @@ int main (int argc, char **argv) {
     struct timeval stime;
 
     gettimeofday (&start, NULL);
+    system("@cls||clear");
+    
     conjunto_t *P = create();
 
     char *in_file = NULL;
@@ -49,9 +51,10 @@ int main (int argc, char **argv) {
     plotGraph(P); 
     debug(P);
 
-    TRIcount(P);
-
+    soluciona(P);
+    solucao(P),
     saveFILE(out_file,P);
+
     dump(P,1);
 
     gettimeofday (&end, NULL);
@@ -60,8 +63,8 @@ int main (int argc, char **argv) {
     utime = ru.ru_utime;
     stime = ru.ru_stime;
 
-    printf(COLOR_YELL"\n\n");
-    printf(" Tempo: %ld ms\n", ((end.tv_sec-start.tv_sec)*1000000L+end.tv_usec)-start.tv_usec);
+    printf(COLOR_YELL);
+    printf(" gettime  => %ld ms\n", ((end.tv_sec-start.tv_sec)*1000000L+end.tv_usec)-start.tv_usec);
     printf(" ru_utime => %lds:%ldms\n", utime.tv_sec, utime.tv_usec);
     printf(" ru_stime => %lds:%ldms\n", stime.tv_sec, stime.tv_usec);
     printf(COLOR_RESET);

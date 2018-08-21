@@ -8,7 +8,7 @@ void chkFILE(char *file) {
     }
     bool erro = false;
     ncoords_t NC;
-    tupla_t ponto;
+    tupla_t p;
     anchor_t Xa;
     anchor_t Xb;
     unsigned short Nline = 0;
@@ -23,15 +23,15 @@ void chkFILE(char *file) {
                 if (!PisValide(Xb)) { erro = true; showerro(2,Nline); }
             }
             else {
-                sscanf(line, "%hu %hu", &ponto.x, &ponto.y);
-                if (!PisValide(ponto.x)) { erro = true; showerro(3,Nline); }
-                if (!PisValide(ponto.y)) { erro = true; showerro(4,Nline); }
+                sscanf(line, "%hu %hu", &p.x, &p.y);
+                if (!PisValide(p.x)) { erro = true; showerro(3,Nline); }
+                if (!PisValide(p.y)) { erro = true; showerro(4,Nline); }
             }
             Nline++;
     }
     free(line);
     fclose(fp);
-    printf(" Linhas: %d\n", Nline);
+    // printf(" Linhas: %d\n", Nline);
     if (Nline-1>NC) { erro = true; showerro(5,Nline); }
     if (erro) ask();
 }

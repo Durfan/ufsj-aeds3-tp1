@@ -1,49 +1,48 @@
 #include "main.h"
 
-int isInside(conjunto_t *CJT, node_t *C, node_t *S) {
-    int Ax = CJT->Xa;
-    int Bx = CJT->Xb;
-    int Cx = C->ponto.x, Cy = C->ponto.y;
-    int Sx = S->ponto.x, Sy = S->ponto.y;
-    int AS_x = S->ponto.x-Ax;
-    int AS_y = S->ponto.y;
+int PQR(conjunto_t *P, node_t *Q, node_t *R) {
+    if ((Q == R) || (Q->p.y < R->p.y)) return 0;
+    signed long PaQR, PbQR;
 
-    bool S_AB = (Bx-Ax)*AS_y*AS_x > 0;
+    PaQR = Q->p.y*(R->p.x-Q->p.x)-(Q->p.x-P->Xa)*(R->p.y-Q->p.y);
+    PbQR = Q->p.y*(R->p.x-Q->p.x)-(Q->p.x-P->Xb)*(R->p.y-Q->p.y);
+    if (!PaQR || !PbQR) return 0; // colinear
 
-    if (((Cx-Ax)*AS_y - Cy*AS_x > 0 ) == S_AB) return false;
-    if (((Cx-Bx)*Sy - Cy*(Sx-Bx) > 0) != S_AB) return false;
-
-    return true;
+    PaQR = (PaQR > 0)? 1 : 2; // clock wise 1, counter clock 2
+    PbQR = (PbQR > 0)? 1 : 2; // clock wise 1, counter clock 2
+    if (PaQR == 1 && PbQR == 2) return 1; // inside
+    
+    return 0;
 }
 
 int findMAX(conjunto_t *CJT, conjunto_t *plot) {
     if (isEmpty(CJT)) return 0;
     conjunto_t *AUX = create();
     conjunto_t *MAX = create();
-    node_t *C = CJT->head;
-    node_t *S;
+    node_t *Q = CJT->head;
+    node_t *R = CJT->head;
     node_t *win = NULL;
     int dots = 0; 
     int moredots = dots;
 
-    while (C != NULL) {
-        S = CJT->head;
-        while (S != NULL) {
-            if (S != C && isInside(CJT,C,S)) {
+    while (Q != NULL) {
+        R = CJT->head;
+        while (R != NULL) {
+            if (PQR(CJT,Q,R)) {
                 dots++;
-                insere(S->ponto,AUX);
+                insere(R->p,AUX);
             }
-            S = S->next;
+            R = R->next;
         }
         if (dots>moredots) {
             moredots = dots;
-            win = C;
+            win = Q;
             dump(MAX,0);
             cpyCJT(AUX,MAX);
         }
         dots = 0;
         dump(AUX,0);
-        C = C->next;
+        Q = Q->next;
     }
 
     if (win != NULL) winPLOT(win,plot);
@@ -61,12 +60,12 @@ int findMAX(conjunto_t *CJT, conjunto_t *plot) {
 void cpyCJT(conjunto_t *FROM, conjunto_t *TO) {
     node_t *copy = FROM->head;
     while (copy != NULL) {
-        insere(copy->ponto,TO);
+        insere(copy->p,TO);
         copy = copy->next;
     }
 }
 
-void TRIcount(conjunto_t *CJT) {
+void soluciona(conjunto_t *CJT) {
     conjunto_t *plot = create();
     plot->Xa = CJT->Xa;
     plot->Xb = CJT->Xb;
@@ -74,56 +73,12 @@ void TRIcount(conjunto_t *CJT) {
     findMAX(CJT,plot);
     plotGraph(plot);
     dump(plot,1);
+}
 
+void solucao(conjunto_t *CJT) {
+    printf(COLOR_YELL" Triangulos possiveis: %d\n"COLOR_RESET, CJT->total);
 }
 
 void winPLOT(node_t *win, conjunto_t *plot) {
-    insere(win->ponto,plot);
-}
-
-// Dev. Depreciado ------------------------------------
-
-float area(int Ax, int Ay, int Bx, int By, int Cx, int Cy) {
-   return ((Ax*(By-Cy) + Bx*(Cy-Ay) + Cx*(Ay-By))/2.0);
-}
-
-int isInside_byarea(conjunto_t *CJT, node_t *C, node_t *S) {
-    anchor_t Ax = CJT->Xa, Ay = 0;
-    anchor_t Bx = CJT->Xb, By = 0;
-    anchor_t Cx = C->ponto.x, Cy = C->ponto.y;
-    anchor_t Sx = S->ponto.x, Sy = S->ponto.y;
-
-    float AT = area(Ax, Ay, Bx, By, Cx, Cy);
-    float A1 = area(Sx, Sy, Bx, By, Cx, Cy);
-    float A2 = area(Ax, Ay, Sx, Sy, Cx, Cy);
-    float A3 = area(Ax, Ay, Bx, By, Sx, Sy);
-
-    /*     
-    printf(" A = %d,%d\n", Ax,Ay);
-    printf(" B = %d,%d\n", Bx,By);
-    printf(" C = %d,%d\n", Cx,Cy);
-    printf(" I = %d,%d : %d\n", Sx, Sy, (AT==A1+A2+A3) ? 1:0);
-    printf(" AT = %f\n", AT);
-    printf(" A1 = %f\n", A1);
-    printf(" A2 = %f\n", A2);
-    printf(" A3 = %f\n", A3);
-    printf(" A1+A2+A3 = %f\n\n", A1+A2+A3);
-    */
-
-    return (AT == A1 + A2 + A3);
-}
-
-int determinate(conjunto_t *P, node_t *C) {
-   return (P->Xa*(- C->ponto.y) + 1 * (P->Xb*C->ponto.y));
-}
-
-int BF_determinante(conjunto_t *P) {
-    int triangles = 0;
-    node_t *C = P->head;
-
-    while (C != NULL) {
-        if (determinate(P,C)) triangles++;
-        C = C->next;
-    }
-    return triangles;
+    insere(win->p,plot);
 }

@@ -7,7 +7,6 @@
 #include "data.h"
 #include "files.h"
 #include "hipercampo.h"
-#include "mergesort.h"
 #include "gnuplot.h"
 #include "valida.h"
 

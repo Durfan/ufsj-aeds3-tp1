@@ -3,9 +3,7 @@
 void debug(conjunto_t *CJT) {
     if (DEBUG) {
         printCJT(CJT);
-        printf(" Xa = %hu\n", CJT->Xa);
-        printf(" Xb = %hu\n", CJT->Xb);
-        printf(" Pontos = %hu\n", CJT->ncoords);
+        printf("\n Ancoras: %hu,0 <-> %hu,0 -> Pontos: %hu\n", CJT->Xa, CJT->Xb, CJT->ncoords);
     }
 }
 
@@ -23,7 +21,7 @@ conjunto_t *create() {
 void insere(tupla_t tupla, conjunto_t *CJT) {
     node_t *node = (node_t*) malloc(sizeof(node_t));
     if (!node) return;
-    node->ponto = tupla;
+    node->p = tupla;
     node->next = CJT->head;
     CJT->head = node;
 }
@@ -33,10 +31,10 @@ void printCJT(conjunto_t *CJT) {
         printf (" Conjunto Vazio!\n");
         return;
     }
-    printf (" Coordenadas = { ");
+    printf (" P = { ");
     node_t *read = CJT->head;
     while (read != NULL) {
-        printf ("%d,%d ", read->ponto.x, read->ponto.y);
+        printf ("%d,%d ", read->p.x, read->p.y);
         read = read->next;
     }
     printf ("}\n");

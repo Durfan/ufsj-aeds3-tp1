@@ -30,6 +30,5 @@ void saveFILE(char *file, conjunto_t *CJT) {
     return;
     }
     fprintf(fp, "%d", CJT->total);
-    printf(" Total = %d", CJT->total);
     fclose(fp);
 }

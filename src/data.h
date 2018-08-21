@@ -8,7 +8,7 @@ typedef struct tupla {
 } tupla_t;
 
 typedef struct node {
-    tupla_t ponto;
+    tupla_t p;
     struct node *next;
 } node_t;
 
@@ -23,8 +23,8 @@ typedef struct conjunto {
 void debug(conjunto_t *CJT);
 conjunto_t *create();
 void insere(tupla_t tupla, conjunto_t *CJT);
-void printCJT(conjunto_t *P);
-int sizeCJT(conjunto_t *P);
+void printCJT(conjunto_t *CJT);
+int sizeCJT(conjunto_t *CJT);
 void dump(conjunto_t *CJT, int del);
 void delCJT(conjunto_t *CJT);
 int isEmpty(conjunto_t *CJT);

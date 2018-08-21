@@ -18,7 +18,7 @@ node_t *SortedMerge(node_t *a, node_t *b) {
     if (a == NULL) return(b);
     else if (b==NULL) return(a);
 
-    if (a->ponto.y >= b->ponto.y) {
+    if (a->p.y >= b->p.y) {
         result = a; 
         result->next = SortedMerge(a->next,b);
     }
