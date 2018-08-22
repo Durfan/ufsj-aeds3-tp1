@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 The format is based on Keep a Changelog and this project adheres to Semantic Versioning.
 
+## [0.0.3] - 2018-21-08
+
+### Fixed
+
+* gnuplot png format.
+
+### Changed
+
+* algoritimo de solucao pela equacao da reta.
+
 ## [0.0.2] - 2018-19-08
 
 ### Added
