@@ -2,7 +2,7 @@
 
 Primeiro Trabalho Prático de AED's III.
 
-![](https://i.imgur.com/p535u3B.png)
+![](https://github.com/Durfan/ufsj-aeds3-tp1/raw/master/input.svg)
 
 ## Pre-requisitos
 
