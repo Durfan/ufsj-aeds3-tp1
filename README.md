@@ -1,8 +1,7 @@
 # Hipercampos
 
 Primeiro Trabalho Prático de AED's III.
-
-![](https://github.com/Durfan/ufsj-aeds3-tp1/raw/master/input.svg)
+![](https://i.imgur.com/p535u3B.png)
 
 ## Pre-requisitos
 
