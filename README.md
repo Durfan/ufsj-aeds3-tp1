@@ -1,7 +1,9 @@
 # Hipercampos
 
 Primeiro Trabalho Prático de AED's III.
-![](https://i.imgur.com/p535u3B.png)
+
+![](./input.svg)
+<img src="./input.svg">
 
 ## Pre-requisitos
 
