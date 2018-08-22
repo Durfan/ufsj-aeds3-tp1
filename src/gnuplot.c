@@ -15,9 +15,9 @@ void plotGraph(conjunto_t *CJT) {
     }
     fclose(temp);
 
-    fprintf(gnuplot, "set terminal png size 2400,1800\n");
-    if (!CJT->ncoords) fprintf(gnuplot, "set output 'output.png'\n");
-    else fprintf(gnuplot, "set output 'input.png'\n");
+    fprintf(gnuplot, "set terminal svg enhanced mouse size 1280,1280\n");
+    if (!CJT->ncoords) fprintf(gnuplot, "set output 'output.svg'\n");
+    else fprintf(gnuplot, "set output 'input.svg'\n");
     fprintf(gnuplot, "set title \"Debug\"\n");
     fprintf(gnuplot, "plot 'data.temp' w lp\n");
 
