@@ -1,4 +1,4 @@
-# Hipercampos
+# Hipercampos [![CodeFactor](https://www.codefactor.io/repository/github/durfan/ufsj-aeds3-tp1/badge)](https://www.codefactor.io/repository/github/durfan/ufsj-aeds3-tp1)
 
 Primeiro Trabalho Prático de AED's III.
 
