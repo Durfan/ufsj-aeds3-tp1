@@ -28,7 +28,7 @@
 
 \section{Introdução}
 
-A computação é um instrumento muito útil para encaminhar a resolução de um problema. Podendo ele ser uma coisa simples, ou então, até mesmo algo mais elaborado. Tendo isso em vista, o primeiro trabalho pratico da disciplina nos desafia a resolver o problema dos Hipercampos. O qual é visto em diversas  maratonas de programação, e pode ser resolvido de varias formas. Neste trabalho será aborada a solução julgada de melhor implementação por parte dos discentes.
+A computação é um instrumento muito útil para encaminhar a resolução de um problema. Podendo ele ser uma coisa simples, ou então, até mesmo algo mais elaborado. Tendo isso em vista, o primeiro trabalho prático da disciplina nos desafia a resolver o problema dos Hipercampos. O qual é visto em diversas  maratonas de programação, e pode ser resolvido de varias formas. Neste trabalho será aborada a solução julgada de melhor implementação por parte dos discentes.
 
 \subsection{Especificação do Problema}
 
@@ -51,7 +51,7 @@ O programa imprime uma linha contendo um inteiro, representando o número máxim
 
 O metodo em questão usado para resolver esse problema se baseia na exploração do sistema de coordenadas baricêntricas e na orientação dos segmentos de retas formados pela conexão dos pontos. Portanto em primeiro lugar é verificada a orientação das retas para isolar os casos em que elas se interceptão ou são colineares.
 
-Logo em seguida precisa-se saber se um ponto esta contido dentro de um triangulo. Uma solução simples seria traçar uma reta que segue horizontalmente para a direita, e depois fazendo comparações para saber quantas vezes ela intercepta o poligono formado, se o resultado for um número par o ponto está fora, se for impar ele está dentro. Porem isso levaria o programa a executar muitas operações, então evoluindo desse conceito chegamos a uma solução usando as coordenadas baricentricas, onde é verificado em qual lado do meio plano criado pelas arestas está o ponto.
+Logo em seguida precisa-se saber qunado um ponto esta contido em um triangulo. Uma solução simples seria traçar uma reta que segue horizontalmente para a direita, e depois fazendo comparações para saber quantas vezes ela intercepta o poligono formado, se o resultado for um número par o ponto está fora, se for impar ele está dentro. Porem isso levaria o programa a executar muitas operações, então evoluindo desse conceito chegamos a uma solução usando as coordenadas baricentricas, onde é verificado em qual lado do meio plano criado pelas arestas está o ponto.
 
 
 \section{Implementação}
@@ -86,7 +86,7 @@ O Trabalho computacional 1 da disciplina foi uma grande oportunidade para aprend
 
 Um dos maiores problemas no desenvolvimento foi encontrar um algoritmo que possuísse um comportamento adequado quando a entrada de valores é muito grande. Apesar da forte base matemática de nossos métodos, em alguns casos eles podem levar a uma falta de precisão, porque o sistema de números de ponto flutuante tem tamanho limitado e na maioria das vezes lida com aproximações. O problema ocorre às vezes quando um ponto p deve estar exatamente na borda de um triângulo, as aproximações levam a falhar no teste. 
 
-Para a contrução de graficos que auxiliam em uma melhor visualização do trabalho foi necessario o Gnuplot.
+Para a construção de gráficos que auxiliam em uma melhor visualização do trabalho foi necessario o Gnuplot.
 
 
 \begin{flushleft}
