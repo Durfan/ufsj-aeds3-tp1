@@ -28,26 +28,66 @@
 
 \section{Introdução}
 
-O texto abaixo foi retirado na integra da descrição do Trabalho Prático. É necessário reescreve-lo para criar uma introdução própria ao problema proposto.
+A computação é um instrumento muito útil para encaminhar a resolução de um problema. Podendo ele ser uma coisa simples, ou então, até mesmo algo mais elaborado. Tendo isso em vista, o primeiro trabalho pratico da disciplina nos desafia a resolver o problema dos Hipercampos. O qual é visto em diversas  maratonas de programação, e pode ser resolvido de varias formas. Neste trabalho será aborada a solução julgada de melhor implementação por parte dos discentes.
 
-São dadas duas âncoras, dois pontos $A = (X_A , 0)$ e $B = (X_B , 0)$, formando um segmento horizontal, tal que $0 < XA < XB$ , e um conjunto $P$ de $N$ pontos da forma $(X, Y)$, tal que $X > 0$ e $Y > 0$. A figura mais à esquerda exemplifica uma possível entrada.
+\subsection{Especificação do Problema}
 
-Para ''ligar'' um ponto $v \in P$ precisamos desenhar os dois segmentos de reta $(v, A)$ e $(v, B)$. Queremos ligar vários pontos, mas de modo que os segmentos se interceptem apenas nas âncoras. Por exemplo, a figura do meio mostra dois pontos, 1 e 4, que não podem estar ligados ao mesmo tempo, pois haveria interseção dos segmentos fora das âncoras. A figura mais à direita mostra que é possível ligar pelo menos 3 pontos, 8, 5 e 3, com interseção apenas nas âncoras. Seu programa deve computar o número máximo de pontos que é possível ligar com interseção de segmentos apenas nas âncoras.
+Em uma visão mais detalhada do problema, temos um plano cartesiano onde são dadas duas âncoras, dois pontos onde Y= 0 e os valores de $X$ variam de $A$ até $B$ formando assim um segmento de reta horizontal, tal que $0 < XA < XB$. E também se recebe como entrada um conjunto $P$ de $N$ pontos na forma $(X, Y)$ sendo $X$ e $Y$ maiores do que 0.
 
-A partir desse paragrafo será colocada uma visão geral sobre o funcionamento do programa segundo as especificações do TP mais adicionais.
+Ao ligar um dos pontos contidos em P às âncoras, usando segmentos de reta, formamos um triangulo, deve-se ligar vários pontos, mas de modo que eles se interceptem apenas nas ancoras. Se expressando de uma maneira mais simples, deve-se achar o maior número de triângulos contidos um dentro do outro, que se cruzam apenas na base. 
+
+   Portanto o algoritmo trabalhado computa o número máximo de pontos que é possível ligar com interseção de segmentos apenas nas ancoras, de acordo com as entradas do usuário.
+
+\subsection{Entrada}
+
+A primeira linha da entrada contém três inteiros, $N(1 ≤ N ≤ 100)$, $XA$ e $XB$ $(0 < XA < XB ≤ 10000)$ representando, respectivamente, o número de pontos no conjunto $P$ e as abscissas das âncoras $A$ e $B$. As $N$ linhas seguintes contêm, cada uma, dois inteiros $Xi$ e $Yi4 $(0 < Xi, Yi ≤ 10000)$,representando as coordenadas dos pontos, para $1 ≤ i ≤ N$ . Não há pontos coincidentes e não há
+dois pontos u e v distintos tais que $A$, $u$, $v$ ou $B$, $u$, $v$ sejam colineares.
+
+\subsection{Saída}
+
+O programa imprime uma linha contendo um inteiro, representando o número máximo de pontos de PP que podem ser ligados com interseção de segmentos apenas nas âncoras.
+
+\subsection{Solução proposta}
+
+O metodo em questão usado para resolver esse problema se baseia na exploração do sistema de coordenadas baricêntricas e na orientação dos segmentos de retas formados pela conexão dos pontos. Portanto em primeiro lugar é verificada a orientação das retas para isolar os casos em que elas se interceptão ou são colineares.
+
+Logo em seguida precisa-se saber se um ponto esta contido dentro de um triangulo. Uma solução simples seria traçar uma reta que segue horizontalmente para a direita, e depois fazendo comparações para saber quantas vezes ela intercepta o poligono formado, se o resultado for um número par o ponto está fora, se for impar ele está dentro. Porem isso levaria o programa a executar muitas operações, então evoluindo desse conceito chegamos a uma solução usando as coordenadas baricentricas, onde é verificado em qual lado do meio plano criado pelas arestas está o ponto.
+
 
 \section{Implementação}
 
-\begin{enumerate}
-\item Listagem das rotinas.
-\item Descrição breve dos algoritmos e das estruturas de dados utilizadas.
-\item Análise da complexidade das rotinas.
-\item Análise dos resultados obtidos.
-\end{enumerate}
+-Mergesort
+Foi usado o mergesort para ordenar a lista encadeada pelo maior Y dos pontos. Esse algoritmo de ordenação segue o estilo dividir e conquistar, possuindo complexidade de O(n log n).
+
+-plotGraph
+Cria um aquivo "data.temp" onde são armazenados os valores de entrada, e logo em seguida escreve os comandos do "gnuplot" e manda executá-lo.
+
+-dump 
+Essa função usa um vetor de nomes de objetos R e produz representações de texto dos objetos em um arquivo ou conexão.
+
+-soluciona
+Chama as funções para formar o grafico e achar o ponto de maior valor do conjunto_t
+
+-PQR
+Verifica por meio da expreção de orientação da reta 
+$(y2−y1) (x3−x2) − (y3−y2) (x2−x1)$
+se os pontos são colineares, e a orientação do triangulo (horario ou anti-horario)
+
+-solucao
+Imprime a saida do problema
+
+\section{Análise de Complexidade}
+
+$O(N^2)$
 
 \section{Considerações finais}
 
-Comentários gerais sobre o trabalho e as principais dificuldades encontradas em sua implementação.
+O Trabalho computacional 1 da disciplina foi uma grande oportunidade para aprender sobre grafos e LCS, que rodeiam o algoritmo otimo para a solução desse problema, o que é a introdição para programação dinamica e acreditamos ser o intuito desse trabalho, também proporcionou um contato maior com a analise de complexidade do algoritmo. 
+
+Um dos maiores problemas no desenvolvimento foi encontrar um algoritmo que possuísse um comportamento adequado quando a entrada de valores é muito grande. Apesar da forte base matemática de nossos métodos, em alguns casos eles podem levar a uma falta de precisão, porque o sistema de números de ponto flutuante tem tamanho limitado e na maioria das vezes lida com aproximações. O problema ocorre às vezes quando um ponto p deve estar exatamente na borda de um triângulo, as aproximações levam a falhar no teste. 
+
+Para a contrução de graficos que auxiliam em uma melhor visualização do trabalho foi necessario o Gnuplot.
+
 
 \begin{flushleft}
 	\nocite{*}
