@@ -6,10 +6,17 @@
 \usepackage[brazil]{babel}
 
 \usepackage{amssymb}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.16}
+
 \usepackage{graphicx}
 \usepackage{indentfirst}
 \usepackage{booktabs}
-\usepackage{forest}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 \usepackage[numbers]{natbib}
 \usepackage{url}
@@ -33,7 +40,50 @@ A computação é um instrumento muito útil para encaminhar a resolução de um
 
 \subsection{Especificação do Problema}
 
-Em uma visão mais detalhada do problema, temos um plano cartesiano onde são dadas duas âncoras, dois pontos onde Y= 0 e os valores de $X$ variam de $A$ até $B$ formando assim um segmento de reta horizontal, tal que $0 < X_A < X_B$. E também se recebe como entrada um conjunto $P$ de $N$ pontos na forma $(X,Y)$ sendo $X$ e $Y$ maiores do que 0.
+No problema especificado neste trabalho prático, temos um plano cartesiano em $\mathbb{R}^2$ onde são dadas duas âncoras, dois pontos onde $Y=0$ e os valores de $X$ variam de $A$ até $B$ formando assim um segmento de reta horizontal, tal que $0 < X_A < X_B$. E também se recebe como entrada um conjunto $P$ de $N$ pontos na forma $(X,Y)$ sendo $X$ e $Y$ maiores do que 0.
+
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}[
+		title={Figura 1: Exemplo da entrada do problema.},
+		xmin=0, xmax=100,
+		ymin=0, ymax=100,
+		xtick={0,20,40,60,80,100},
+		ytick={0,20,40,60,80,100},
+		xmajorgrids=true,
+		ymajorgrids=true,
+		grid style=dashed,
+		%legend style={draw=none},
+	]
+	
+	\addplot[color=black,only marks,mark=square*,mark size=2.9pt]
+		coordinates{(10,0)(50,0)};	
+	
+	\addplot[color=black,only marks,mark size=2.9pt]
+		coordinates{
+			(4,29)
+			(15,15)
+			(25,25)
+			(35,14)
+			(36,30)
+			(45,6)
+			(26,20)
+			(21,10)
+			(28,5)
+			(40,24)
+			(65,16)
+			(80,75)
+			%(50,62)
+			(5,90)
+			(60,50)
+		};
+	
+	\legend{Âncoras}
+	
+	\end{axis}
+\end{tikzpicture}
+\footnotesize{\\Fonte: autores}
+\end{center}
 
 Ao ligar um dos pontos contidos em P às âncoras, usando segmentos de reta, formamos um triangulo, deve-se ligar vários pontos, mas de modo que eles se interceptem apenas nas ancoras. Se expressando de uma maneira mais simples, deve-se achar o maior número de triângulos contidos um dentro do outro, que se cruzam apenas na base.
 
@@ -43,9 +93,75 @@ Portanto o algoritmo trabalhado computa o número máximo de pontos que é poss�
 
 A primeira linha da entrada contém três inteiros, $N(1 \leqslant N \leqslant 100)$, $X_A$ e $X_B$ $(0 < X_A < X_B \leqslant 10000)$ representando, respectivamente, o número de pontos no conjunto $P$ e as abscissas das âncoras $A$ e $B$. As $N$ linhas seguintes contêm, cada uma, dois inteiros $Xi$ e $Yi$ $(0 < X_i, Y_i \leqslant 10000)$,representando as coordenadas dos pontos, para $1 \leqslant i \leqslant N$. Não há pontos coincidentes e não há dois pontos u e v distintos tais que $A$, $u$, $v$ ou $B$, $u$, $v$ sejam colineares.
 
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[
+	title={Figura 2: Triângulos formados a partir das âncoras.},
+	xmin=0, xmax=100,
+	ymin=0, ymax=100,
+	xtick={0,20,40,60,80,100},
+	ytick={0,20,40,60,80,100},
+	xmajorgrids=true,
+	ymajorgrids=true,
+	grid style=dashed,
+	%legend style={draw=none},
+	]	
+	
+	\addplot+[sharp plot,color=black,mark size=2.9pt]
+	coordinates{
+		(10,0)(4,29)(50,0)
+		(10,0)(15,15)(50,0)
+		(10,0)(25,25)(50,0)
+		(10,0)(35,14)(50,0)
+		(10,0)(36,30)(50,0)
+		(10,0)(45,6)(50,0)
+		(10,0)(26,20)(50,0)
+		(10,0)(21,10)(50,0)
+		(10,0)(28,5)(50,0)
+		(10,0)(40,24)(50,0)
+		(10,0)(65,16)(50,0)
+		(10,0)(80,75)(50,0)
+		%(10,0)(50,62)(50,0)
+		(10,0)(5,90)(50,0)
+		(10,0)(60,50)(50,0)
+	};
+	
+	\end{axis}
+	\end{tikzpicture}
+	\footnotesize{\\Fonte: autores}
+\end{center}
+
 \subsection{Saída}
 
 O programa imprime uma linha contendo um inteiro, representando o número máximo de pontos de PP que podem ser ligados com interseção de segmentos apenas nas âncoras.
+
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[
+	title={Figura 3: Solução encontrada pelo programa.},
+	xmin=0, xmax=100,
+	ymin=0, ymax=100,
+	xtick={0,20,40,60,80,100},
+	ytick={0,20,40,60,80,100},
+	xmajorgrids=true,
+	ymajorgrids=true,
+	grid style=dashed,
+	%legend style={draw=none},
+	]	
+	
+	\addplot+[sharp plot,color=black,mark size=2.9pt]
+	coordinates{
+		(10,0)(28,5)(50,0)
+		(10,0)(35,14)(50,0)
+		(10,0)(40,24)(50,0)
+		(10,0)(60,50)(50,0)
+		(10,0)(80,75)(50,0)
+	};
+	
+	\end{axis}
+	\end{tikzpicture}
+	\footnotesize{\\Fonte: autores}
+\end{center}
 
 \subsection{Solução proposta}
 
@@ -53,34 +169,124 @@ O método em questão usado para resolver esse problema se baseia na exploraçã
 
 Logo em seguida precisa-se saber quando um ponto esta contido em um triangulo. Uma solução simples seria traçar uma reta que segue horizontalmente para a direita, e depois fazendo comparações para saber quantas vezes ela intercepta o polígono formado, se o resultado for um número par o ponto está fora, se for impar ele está dentro. Porem isso levaria o programa a executar muitas operações, então evoluindo desse conceito chegamos a uma solução usando as coordenadas baricêntricas, onde é verificado em qual lado do meio plano criado pelas arestas está o ponto.
 
-
-\section{Implementação}
-
--mergesort
-Foi usado o mergesort para ordenar a lista encadeada pelo maior Y dos pontos. Esse algoritmo de ordenação segue o estilo dividir e conquistar, possuindo complexidade de $O(n \log n)$.
-
--plotGraph
-Cria um aquivo ''data.temp'' onde são armazenados os valores de entrada, e logo em seguida escreve os comandos do ''gnuplot'' e manda executá-lo.
-
--dump 
-Essa função usa um vetor de nomes de objetos R e produz representações de texto dos objetos em um arquivo ou conexão.
-
--soluciona
-Chama as funções para formar o gráfico e achar o ponto de maior valor do conjunto.
-
--PQR
 Verifica por meio da expressão de orientação da reta:
 
 \[(y2-y1) (x3-x2) - (y3-y2) (x2-x1)\]
 
-S5e os pontos são colineares, e a orientação do triangulo (horário ou anti-horário)
+Se os pontos são colineares, e a orientação do triangulo (horário ou anti-horário)
 
--solucao
-Imprime a saída do problema
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[
+	title={Figura 4a: Determinando o ponto interno ao triângulo},
+	xmin=0, xmax=80,
+	ymin=0, ymax=80,
+	xtick={0,20,40,60,80,100},
+	ytick={0,20,40,60,80,100},
+	grid style=dashed,
+	%legend style={draw=none},
+	]	
+	
+	\addplot+[color=black,mark size=2.9pt]
+	coordinates{
+		(10,0)(40,75)
+	};
+	\addplot[color=red,mark size=2.9pt]
+	coordinates{
+		(10,0)(40,50)
+	};
+
+	\addplot[mark=*] coordinates {(40,50)} node[pin=310:{$PQR>0$}]{} ;
+	
+	\end{axis}
+	\end{tikzpicture}
+	\footnotesize{\\Fonte: autores}
+\end{center}
+
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[
+	title={Figura 4b: Determinando o ponto interno ao triângulo},
+	xmin=0, xmax=80,
+	ymin=0, ymax=80,
+	xtick={0,20,40,60,80,100},
+	ytick={0,20,40,60,80,100},
+	grid style=dashed,
+	%legend style={draw=none},
+	]	
+	
+	\addplot+[color=black,mark size=2.9pt]
+	coordinates{
+		(70,0)(40,75)
+	};
+	\addplot[color=red,mark size=2.9pt]
+	coordinates{
+		(70,0)(40,50)
+	};
+	
+	\addplot[mark=*] coordinates {(40,50)} node[pin=250:{$PQR<0$}]{} ;
+	
+	\end{axis}
+	\end{tikzpicture}
+	\footnotesize{\\Fonte: autores}
+\end{center}
+
+\pagebreak
+
+\section{Implementação}
+
+\begin{table}[!htbp]
+	\centering
+	\caption{Funções do programa}
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{L{3cm} L{10cm} c}
+		\toprule 
+		Funções & Finalidade & Complexidade* \\ 
+		\midrule
+		$debug()$ & Função que verifica a condição para retorno de possíveis bugs no programa. & $O(1)$ \\
+		$create()$ & Inicializa a Lista encadeada. & $O(1)$ \\
+		$insere()$ & Insere os dados em uma lista encadeada. & $O(1)$ \\
+		$printCJT()$ & Imprime uma Lista encadeada. & $O(n)$ \\
+		$sizeCJT()$ & Retorna o tamanho da lista encadeada. & $O(n)$ \\
+		$dump()$ & Libera a memoria alocada pela lista. & $O(n)$ \\
+		$isEmpty()$ & Verifica se uma lista encadeada está vazia. & $O(1)$ \\
+		$openFILE()$ & Abre o arquivo solicitado e transfere os dados para uma lista encadeada. & $O(n)$ \\
+		$saveFILE()$ & Salva a solução do problema em um arquivo. & $O(1)$ \\
+		$chkFILE()$ & Verifica por possíveis erros de entrada em um arquivo. & $O(1)$ \\
+		$showerro()$ & Retorna possíveis erros no arquivo de entrada. & $O(1)$ \\
+		$ask()$ & Solicita a confirmação do usuário caso erros de entrada sejam encontrados. & $O(1)$ \\
+		$cpyCJT()$ & Copia os dados de uma lista encadeada para outra lista encadeada. & $O(1)$ \\
+		$PQR()$ & Algorítimo de orientação do ponto em relação a reta da ancora. & $O(1)$ \\
+		$findMAX()$ & Função recursiva que determina o maior conjunto de pontos que se encontram dentro do triângulo formado pelas ancoras e um ponto $(x,y)$.  & $O(n)$ \\
+		$soluciona()$ \newline $solucao()$ & Funções de chamada e retorno para a execução do algorítimo & $O(1)$ \\
+		$plotGraph()$ & PIPE para o gnuplot com a finalidade de renderizar os arquivos .svg contendo respectivamente, a entrada e saída da solução do problema.  & $O(n)$ \\ 
+		\bottomrule
+		\footnotesize Fonte: autores
+	\end{tabular}
+\end{table}
 
 \section{Análise de Complexidade}
 
 $O(N^2)$
+
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[
+	title={Figura 5: Tempo de execução do algoritimo},
+	xmin=0, xmax=100,
+	ymin=0, ymax=360,
+	xlabel={Dados de entrada},
+	ylabel={Tempo de execução},
+	xtick={0,20,40,60,80,100},
+	ytick={0,60,120,180,240,300,360},
+	grid style=dashed,
+	%legend style={draw=none},
+	]
+	
+	\end{axis}
+	\end{tikzpicture}
+	\footnotesize{\\Fonte: autores}
+\end{center}
 
 \section{Considerações finais}
 
@@ -90,6 +296,7 @@ Um dos maiores problemas no desenvolvimento foi encontrar um algoritmo que possu
 
 Para a construção de gráficos que auxiliam em uma melhor visualização do trabalho foi necessário o gnuplot.
 
+\pagebreak
 
 \begin{flushleft}
 	\nocite{*}

@@ -17,9 +17,14 @@ void plotGraph(conjunto_t *CJT) {
     FILE *gnuplot = popen("gnuplot", "w");
 
     fprintf(gnuplot, "set terminal svg enhanced mouse size 1280,1280\n");
-    if (!CJT->ncoords) fprintf(gnuplot, "set output 'output.svg'\n");
-    else fprintf(gnuplot, "set output 'input.svg'\n");
-    fprintf(gnuplot, "set title \"Solucao da entrada\"\n");
+    if (!CJT->ncoords) { 
+        fprintf(gnuplot, "set output 'output.svg'\n");
+        fprintf(gnuplot, "set title \"Saida\"\n");
+    }
+    else {
+        fprintf(gnuplot, "set output 'input.svg'\n");
+        fprintf(gnuplot, "set title \"Entrada\"\n");
+    }
     fprintf(gnuplot, "set style line 12 lc rgb '#808080' lt 0 lw 1\n");
     fprintf(gnuplot, "set grid back ls 12\n");
     fprintf(gnuplot, "plot 'data.temp' w lp\n");

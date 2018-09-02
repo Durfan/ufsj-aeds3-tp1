@@ -34,7 +34,7 @@ int findMAX(conjunto_t *CJT, conjunto_t *plot) {
             }
             R = R->next;
         }
-        if (dots>=moredots) {
+        if (dots >= moredots) {
             moredots = dots;
             win = Q;
             dump(MAX,0);
@@ -45,7 +45,7 @@ int findMAX(conjunto_t *CJT, conjunto_t *plot) {
         Q = Q->next;
     } while (Q != NULL);
 
-    if (win != NULL) insere(win->p,plot);
+    if (win) insere(win->p,plot);
 
     dump(CJT,0);
     cpyCJT(MAX,CJT);
