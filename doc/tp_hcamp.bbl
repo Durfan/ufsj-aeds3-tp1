@@ -1,4 +1,4 @@
-\begin{thebibliography}{3}
+\begin{thebibliography}{4}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -24,5 +24,13 @@ Patrick Prosser.
 \newblock Geometric algorithms.
 \newblock \url{http://www.dcs.gla.ac.uk/~pat/52233/slides/Geometry1x1.pdf}.
 \newblock [Acesso em: 23-Agosto-2018].
+
+\bibitem[{Wikipedia contributors}(2018)]{wiki:xxx}
+{Wikipedia contributors}.
+\newblock Computational geometry --- {Wikipedia}{,} the free encyclopedia.
+\newblock
+  \url{https://en.wikipedia.org/w/index.php?title=Computational_geometry&oldid=841504892},
+  2018.
+\newblock [Acesso em: 3-Setembro-2018].
 
 \end{thebibliography}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.7.1)  2 SEP 2018 22:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.7.1)  2 SEP 2018 22:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -731,10 +731,10 @@ File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )) [7]
 (./tp_hcamp.aux) ) 
 Here is how much of TeX's memory you used:
- 23619 strings out of 492649
- 601774 string characters out of 6135779
+ 23622 strings out of 492649
+ 601822 string characters out of 6135779
  793541 words of memory out of 5000000
- 27062 multiletter control sequences out of 15000+600000
+ 27065 multiletter control sequences out of 15000+600000
  40375 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,17n,127p,740b,2168s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -750,7 +750,7 @@ e/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type
 1/public/lm/lmtt12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbo
 ls/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10
 .pfb>
-Output written on tp_hcamp.pdf (7 pages, 198687 bytes).
+Output written on tp_hcamp.pdf (7 pages, 200282 bytes).
 PDF statistics:
  79 PDF objects out of 1000 (max. 8388607)
  58 compressed objects within 1 object stream
