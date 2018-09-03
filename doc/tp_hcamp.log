@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.7.1)  2 SEP 2018 22:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.7.1)  2 SEP 2018 23:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -705,34 +705,39 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 45.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 45.
- [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
-Overfull \hbox (29.30206pt too wide) in paragraph at lines 244--268
+Overfull \hbox (6.45393pt too wide) in paragraph at lines 90--127
+[][] []
+ []
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+Overfull \hbox (29.30206pt too wide) in paragraph at lines 245--269
  [][] 
  []
 
-[5]
-Overfull \hbox (5.48349pt too wide) in paragraph at lines 297--298
+[4]
+Overfull \hbox (5.48349pt too wide) in paragraph at lines 298--299
 []\OT1/lmr/m/n/12 Um dos mai-o-res pro-ble-mas no de-sen-vol-vi-mento foi en-co
 n-trar um al-go-ritmo que possu^^S^^Psse
  []
 
-[6] (./tp_hcamp.bbl
+[5] (./tp_hcamp.bbl
 LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 12.
 
  (/usr/share/texmf-dist/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)) [7]
+)) [6]
 (./tp_hcamp.aux) ) 
 Here is how much of TeX's memory you used:
- 23622 strings out of 492649
- 601822 string characters out of 6135779
+ 23624 strings out of 492649
+ 601874 string characters out of 6135779
  793541 words of memory out of 5000000
- 27065 multiletter control sequences out of 15000+600000
+ 27067 multiletter control sequences out of 15000+600000
  40375 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,17n,127p,740b,2168s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 73i,19n,127p,729b,2235s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/s
 hare/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/e
 nc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}<
@@ -745,10 +750,10 @@ e/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type
 1/public/lm/lmtt12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbo
 ls/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10
 .pfb>
-Output written on tp_hcamp.pdf (7 pages, 201599 bytes).
+Output written on tp_hcamp.pdf (6 pages, 199193 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
+ 74 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
