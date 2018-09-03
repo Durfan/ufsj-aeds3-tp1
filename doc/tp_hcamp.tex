@@ -97,9 +97,9 @@ Ao plano cartesiano também somam-se um conjunto $P$ de $N$ pontos $(X_i,Y_i)$, 
 O objetivo do problema de Hipercampos é ligar os pontos contidos em $P$ às âncoras $X_A$ e $X_B$, formando assim o máximo número de triângulos sem que esses se interceptem (Fig. \ref{fig:solucionando}). E para esse proposito é apresentado um algorítimo contido no programa apresentado neste trabalho.
 
 \begin{figure}[!h]
-\caption{Hipercampos, solucionando.}
-\label{fig:solucionando}
-\begin{tikzpicture}[baseline]
+	\caption{Hipercampos, solucionando.}
+	\label{fig:solucionando}
+	\begin{tikzpicture}[baseline]
 	\pgfplotsset{width=8.3cm}
 	\begin{axis}[
 	title={},
@@ -132,8 +132,8 @@ O objetivo do problema de Hipercampos é ligar os pontos contidos em $P$ às ân
 		(10,0)(60,50)(50,0)
 	};
 	\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}[baseline]
+	\end{tikzpicture}
+	\begin{tikzpicture}[baseline]
 	\pgfplotsset{width=8.3cm}
 	\begin{axis}[
 	title={},
@@ -156,8 +156,8 @@ O objetivo do problema de Hipercampos é ligar os pontos contidos em $P$ às ân
 		(10,0)(80,75)(50,0)
 	};
 	\end{axis}
-\end{tikzpicture}
-\footnotesize \hphantom{space}Fonte: autores
+	\end{tikzpicture}
+	\footnotesize \hphantom{space}Fonte: autores
 \end{figure}
 
 \subsection{Visão geral sobre o funcionamento do programa}
@@ -169,10 +169,10 @@ O algorítimo então processa esses dados retornando uma solução que pode ser 
 O programa é executado no prompt de comando e recebe as passagens de parâmetro dos arquivos de entrada e saída:
 
 \begin{figure}[!h]
-\centering
-\begin{BVerbatim}
-$ ./hcamp -i [input] -o [output]
-\end{BVerbatim}
+	\centering
+	\begin{BVerbatim}
+	$ ./hcamp -i [input] -o [output]
+	\end{BVerbatim}
 \end{figure}
 
 A entrada e solução renderizada pode ser vista no exemplo da Figura \ref{fig:inrend}.
@@ -183,7 +183,7 @@ A entrada e solução renderizada pode ser vista no exemplo da Figura \ref{fig:i
 	\includegraphics[width=75mm]{input.png}
 	\hfill
 	\includegraphics[width=75mm]{output.png}\\
-	\footnotesize Fonte: gnuplot
+	\footnotesize Fonte: via gnuplot com dados de entrada obtidos em uDebug.\cite{uri:vitor}
 \end{figure}
 
 \section{Implementação}
@@ -327,7 +327,7 @@ f(n) &= \frac{26n^2+27n-45}{4(n-1)}
 \begin{center}
 	\begin{tikzpicture}
 	\begin{axis}[
-	title={Figura 5: Tempo de execução do algoritimo},
+	title={},
 	xmin=0, xmax=100,
 	ymin=0, ymax=360,
 	xlabel={Dados de entrada},
@@ -345,11 +345,130 @@ f(n) &= \frac{26n^2+27n-45}{4(n-1)}
 
 \section{Considerações finais}
 
-O Trabalho computacional 1 da disciplina foi uma grande oportunidade para aprender sobre grafos e LCS, que rodeiam o algoritmo ótimo para a solução desse problema, o que é a introdução para programação dinâmica e acreditamos ser o intuito desse trabalho, também proporcionou um contato maior com a analise de complexidade do algoritmo. 
+Durante o desenvolvimento vários métodos foram testados com o objetivo de encontrar a maneira mais eficiente de encontrar a solução para o problema de Hipercampos. Foram considerados LCS\footnote{Longest common subsequence ou máxima subsequência crescente consiste em encontrar um subsequência de números, dada um sequência, na qual seus elementos estão ordenados  do menor para o maior, e a sequência é a mais longa possível.}, coordenadas baricêntricas\footnote{As Coordenadas Baricêntricas definem uma forma de representação de um ponto no espaço em função de outros pontos.} e outros métodos envolvendo o calculo da área formada pelos triângulos. Porém, não foi possível neste trabalho chegar a um resultado satisfatório quanto a aplicação desses métodos ao problema.
 
-Um dos maiores problemas no desenvolvimento foi encontrar um algoritmo que possuísse um comportamento adequado quando a entrada de valores é muito grande. Apesar da forte base matemática de nossos métodos, em alguns casos eles podem levar a uma falta de precisão, porque o sistema de números de ponto flutuante tem tamanho limitado e na maioria das vezes lida com aproximações. O problema ocorre às vezes quando um ponto p deve estar exatamente na borda de um triângulo, as aproximações levam a falhar no teste. 
+O uso de um algorítimo recursivo de força bruta foi o que mais se aproximou de um resultado preciso, mas mesmo esse método falhou em testes mais elaborados. A premissa de que o triângulo que contém com o maior número de coordenadas em sua área será aquele que terá o maior número de possibilidades de formações triangulares subsequentes, é falsa. E pode ser verificada visualmente pela Figura \ref{fig:falsa}.
 
-Para a construção de gráficos que auxiliam em uma melhor visualização do trabalho foi necessário o gnuplot.
+\begin{figure}[!h]
+	\caption{Falha no algorítimo.}
+	\label{fig:falsa}
+	\begin{tikzpicture}[baseline]
+	\pgfplotsset{width=8.3cm}
+	\begin{axis}[
+	title={},
+	xmin=0, xmax=100,
+	ymin=0, ymax=100,
+	xtick={0,20,40,60,80,100},
+	ytick={0,20,40,60,80,100},
+	xmajorgrids=true,
+	ymajorgrids=true,
+	grid style=dashed,
+	%legend style={draw=none},
+	]	
+	
+	\addplot+[sharp plot,color=black,mark size=2.9pt]
+	coordinates{
+		(10,0)(4,29)(40,0)
+		(10,0)(15,15)(40,0)
+		(10,0)(25,25)(40,0)
+		(10,0)(35,14)(40,0)
+		(10,0)(36,30)(40,0)
+		(10,0)(45,6)(40,0)
+		(10,0)(26,20)(40,0)
+		(10,0)(21,10)(40,0)
+		(10,0)(28,5)(40,0)
+		(10,0)(40,24)(40,0)
+		(10,0)(65,16)(40,0)
+		(10,0)(80,75)(40,0)
+		(10,0)(50,62)(40,0)
+		(10,0)(5,90)(40,0)
+		(10,0)(60,50)(40,0)
+	};
+	\end{axis}
+	\end{tikzpicture}
+		\begin{tikzpicture}[baseline]
+	\pgfplotsset{width=8.3cm}
+	\begin{axis}[
+	title={},
+	xmin=0, xmax=100,
+	ymin=0, ymax=100,
+	xtick={0,20,40,60,80,100},
+	ytick={0,20,40,60,80,100},
+	xmajorgrids=true,
+	ymajorgrids=true,
+	grid style=dashed,
+	%legend style={draw=none},
+	]	
+	
+	\addplot+[sharp plot,color=blue,mark size=2.9pt]
+	coordinates{
+		(10,0)(28,5)(40,0)
+		(10,0)(35,14)(40,0)
+		(10,0)(40,24)(40,0)
+		(10,0)(60,50)(40,0)
+		(10,0)(80,75)(40,0)
+	};
+
+	\addplot+[sharp plot,color=red,mark size=2.9pt]
+	coordinates{
+		(10,0)(28,5)(40,0)
+		(10,0)(35,14)(40,0)
+		(10,0)(36,30)(40,0)
+		(10,0)(50,62)(40,0)
+	};
+	\legend{Solução correta,Algoritimo}
+	\end{axis}
+	\end{tikzpicture}
+	\begin{tikzpicture}[baseline]
+	\pgfplotsset{width=8.3cm}
+	\begin{axis}[
+	title={},
+	xmin=0, xmax=100,
+	ymin=0, ymax=100,
+	xtick={0,20,40,60,80,100},
+	ytick={0,20,40,60,80,100},
+	xmajorgrids=true,
+	ymajorgrids=true,
+	grid style=dashed,
+	%legend style={draw=none},
+	]	
+	
+	\addplot+[sharp plot,color=red,mark size=2.9pt]
+	coordinates{
+		(10,0)(28,5)(40,0)
+		(10,0)(35,14)(40,0)
+		(10,0)(36,30)(40,0)
+		(10,0)(50,62)(40,0)
+	};
+	\end{axis}
+	\end{tikzpicture}
+	\begin{tikzpicture}[baseline]
+	\pgfplotsset{width=8.3cm}
+	\begin{axis}[
+	title={},
+	xmin=0, xmax=100,
+	ymin=0, ymax=100,
+	xtick={0,20,40,60,80,100},
+	ytick={0,20,40,60,80,100},
+	xmajorgrids=true,
+	ymajorgrids=true,
+	grid style=dashed,
+	%legend style={draw=none},
+	]	
+	
+	\addplot+[sharp plot,color=blue,mark size=2.9pt]
+	coordinates{
+		(10,0)(28,5)(40,0)
+		(10,0)(35,14)(40,0)
+		(10,0)(40,24)(40,0)
+		(10,0)(60,50)(40,0)
+		(10,0)(80,75)(40,0)
+	};
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+Hipótese...
 
 \pagebreak
 

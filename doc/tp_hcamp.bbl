@@ -1,4 +1,4 @@
-\begin{thebibliography}{5}
+\begin{thebibliography}{6}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -30,6 +30,12 @@ Patrick Prosser.
 \newblock Geometric algorithms.
 \newblock \url{http://www.dcs.gla.ac.uk/~pat/52233/slides/Geometry1x1.pdf}.
 \newblock [Acesso em: 23-Agosto-2018].
+
+\bibitem[Vitela()]{uri:vitor}
+Vitor Vitela.
+\newblock Hipercampo.
+\newblock \url{https://www.udebug.com/URI/2665}.
+\newblock [Acesso em: 3-Setembro-2018].
 
 \bibitem[{Wikipedia contributors}(2018)]{wiki:compgeo}
 {Wikipedia contributors}.
