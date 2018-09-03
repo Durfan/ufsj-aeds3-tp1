@@ -6,6 +6,8 @@
 \usepackage[brazil]{babel}
 
 \usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
 
@@ -36,9 +38,9 @@
 
 \section{Introdução}
 
-Em meio a Ciência da Computação, existe uma área dedicada ao estudo de algorítimos para resolução de problemas geométricos que é conhecida como Geometria Computacional. De forma geral, o objetivo deste ramo é resolver de maneira eficiente utilizando o menor número possível de operações sobre os elementos geométricos.
+Na Ciência da Computação, o estudo de algorítimos para resolução de problemas geométricos é conhecido como Geometria Computacional. De forma geral, o objetivo deste ramo é resolver de maneira eficiente utilizando o menor número possível de operações sobre os elementos geométricos elementares.\cite{wiki:xxx}
 
-Neste trabalho, é apresentada a solução para o problema denominado como Hipercampos. O qual pode ser visto em diversas maratonas de programação, possuindo vários metodos de resolução. Contudo exploraremos no desenvolvimento deste trabalho justamente o uso da Geometria Computacional.
+Neste trabalho, é apresentada a solução para o problema denominado como Hipercampos. O qual pode ser visto em diversas maratonas de programação.
 
 \subsection{Especificação do Problema}
 
@@ -270,7 +272,14 @@ Se os pontos são colineares, e a orientação do triangulo (horário ou anti-ho
 
 \section{Análise de Complexidade}
 
-$O(N^2)$
+\[ \begin{split}
+f(n) &= 11 + (n+1)*\frac{n}{n-1}+\frac{n}{2}*\frac{1}{2n}+n+\frac{n}{2}+4n \\
+f(n) &= 11 + \frac{n^2+n}{n-1}+\frac{n}{4n}+\frac{n}{2}+5n \\
+f(n) &= \frac{26n^2+27n-45}{4(n-1)}
+\end{split} \]
+
+\[T(n)=aT(\frac{n}{b})+f(n)\]
+
 
 \begin{center}
 	\begin{tikzpicture}
