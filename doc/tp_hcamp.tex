@@ -347,7 +347,7 @@ f(n) &= \frac{26n^2+27n-45}{4(n-1)}
 
 Durante o desenvolvimento vários métodos foram testados com o objetivo de encontrar a maneira mais eficiente de encontrar a solução para o problema de Hipercampos. Foram considerados LCS\footnote{Longest common subsequence ou máxima subsequência crescente consiste em encontrar um subsequência de números, dada um sequência, na qual seus elementos estão ordenados  do menor para o maior, e a sequência é a mais longa possível.}, coordenadas baricêntricas\footnote{As Coordenadas Baricêntricas definem uma forma de representação de um ponto no espaço em função de outros pontos.} e outros métodos envolvendo o calculo da área formada pelos triângulos. Porém, não foi possível neste trabalho chegar a um resultado satisfatório quanto a aplicação desses métodos ao problema.
 
-O uso de um algorítimo recursivo de força bruta foi o que mais se aproximou de um resultado preciso, mas mesmo esse método falhou em testes mais elaborados. A premissa de que o triângulo que contém com o maior número de coordenadas em sua área será aquele que terá o maior número de possibilidades de formações triangulares subsequentes, é falsa. E pode ser verificada visualmente pela Figura \ref{fig:falsa}.
+O uso de um algorítimo recursivo de força bruta foi o que mais se aproximou de um resultado preciso, mas mesmo esse método falhou em testes mais elaborados. A premissa de que o triângulo que contém com o maior número de coordenadas em sua área será aquele que terá o maior número de possibilidades de formações triangulares subsequentes, é incompleta, pois não considera a área dos triângulos formados. Esse erro pode ser verificado visualmente pela Figura \ref{fig:falsa}.
 
 \begin{figure}[!h]
 	\caption{Falha no algorítimo.}
@@ -468,7 +468,9 @@ O uso de um algorítimo recursivo de força bruta foi o que mais se aproximou de
 	\end{tikzpicture}
 \end{figure}
 
-Hipótese...
+O algorítimo sempre escolhe o triangulo com o maior número de coordenadas em sua área, não considerando que essas possam ser eliminadas em teste subsequentes. Quanto maior a área do triangulo testado, maior sera a possibilidade de erros. E embora o programa cumpra a função de determinar um número de triângulos que não se interceptam, esse não é preciso quanto ao valor máximo que pode ser obtido.
+
+Uma solução alternativa envolvendo o conceito de ''dividir para conquistar'' seria utilizar como entradas para um algorítimo, duas arvores binarias, cada uma delas conteria como raiz uma das ancoras e como filhos as coordenadas do arquivo de entrada. O algorítimo então testaria colisões, verificando se a reta formada a partir de um ponto até às âncoras é concorrente à alguma das retas encontradas em uma das duas árvores binarias. Porém não se chegou a um algorítimo eficaz que pudesse decidir entre um numero de colisões iguais.
 
 \pagebreak
 
