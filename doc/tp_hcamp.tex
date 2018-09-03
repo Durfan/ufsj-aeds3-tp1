@@ -14,6 +14,7 @@
 \usepackage{graphicx}
 \usepackage{indentfirst}
 \usepackage{booktabs}
+\usepackage{fancyvrb}
 
 \usepackage{array}
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -40,11 +41,11 @@
 
 Na Ciência da Computação, o estudo de algorítimos para resolução de problemas geométricos é conhecido como Geometria Computacional. De forma geral, o objetivo deste ramo é resolver de maneira eficiente utilizando o menor número possível de operações sobre os elementos geométricos elementares.\cite{wiki:compgeo}
 
-Dentre os problemas geométricos, temos um conhecido ''como Hipercampos'', o qual pode ser visto como desafio em maratonas de programação\cite{uri:hipercampo}. Neste trabalho, é apresentado a solução para esse problema por meio de um algorítimo contido em um programa desenvolvido na linguagem em C.
+Dentre os problemas geométricos, temos um conhecido como ''Hipercampos'', o qual pode ser visto como desafio em maratonas de programação\cite{uri:hipercampo}. Neste trabalho, é apresentado a solução para esse problema por meio de um algorítimo contido em um programa desenvolvido na linguagem em C.
 
 \subsection{Hipercampos, especificação do problema}
 
-No problema de Hipercampos, um plano cartesiano em $\mathbb{R}^2$ possui duas ''âncoras'', dois pontos $A$ e $B$, onde o eixo $Y$ das duas âncoras são iguais a zero, ou seja $A=(X_A ,0)$ e $B=(X_B , 0)$. Os valores do eixo $X$ das âncoras variam de $X_A$ até $X_B$, formando assim um segmento de reta horizontal, tal que $0 < X_A < X_B \leqslant 10^4$. (Figura \ref{fig:entrada})
+No problema de Hipercampos, um plano cartesiano em $\mathbb{R}^2$ possui duas ''âncoras'', dois pontos $A$ e $B$, onde o eixo $Y$ das duas âncoras são iguais a zero, ou seja $A=(X_A ,0)$ e $B=(X_B , 0)$. Os valores do eixo $X$ das âncoras variam de $X_A$ até $X_B$, formando assim um segmento de reta horizontal, tal que $0 < X_A < X_B \leqslant 10^4$. (Fig. \ref{fig:entrada})
 
 \begin{figure}[!h]
 	\caption{Exemplo de entrada para o problema.}
@@ -93,7 +94,7 @@ No problema de Hipercampos, um plano cartesiano em $\mathbb{R}^2$ possui duas ''
 
 Ao plano cartesiano também somam-se um conjunto $P$ de $N$ pontos $(X_i,Y_i)$, sendo que $N (1 \leqslant N \leqslant 100)$. Os pontos do conjunto $P$ podem ter suas coordenadas variando entre $0$ até $10^4$, ou seja, $0 < X_i,Y_i \leqslant 10^4$.
 
-O objetivo do problema de Hipercampos é ligar os pontos contidos em $P$ às âncoras, formando assim um número máximo de triângulos sem que esses se interceptem (Figura \ref{fig:solucionando}). E para esse proposito é apresentado um algorítimo contido no programa apresentado neste trabalho.
+O objetivo do problema de Hipercampos é ligar os pontos contidos em $P$ às âncoras $X_A$ e $X_B$, formando assim o máximo número de triângulos sem que esses se interceptem (Fig. \ref{fig:solucionando}). E para esse proposito é apresentado um algorítimo contido no programa apresentado neste trabalho.
 
 \begin{figure}[!h]
 \caption{Hipercampos, solucionando.}
@@ -161,9 +162,31 @@ O objetivo do problema de Hipercampos é ligar os pontos contidos em $P$ às ân
 
 \subsection{Visão geral sobre o funcionamento do programa}
 
-A primeira linha da entrada contém três inteiros, $N(1 \leqslant N \leqslant 100)$, $X_A$ e $X_B$ $(0 < X_A < X_B \leqslant 10000)$ representando, respectivamente, o número de pontos no conjunto $P$ e as abscissas das âncoras $A$ e $B$. As $N$ linhas seguintes contêm, cada uma, dois inteiros $Xi$ e $Yi$ $(0 < X_i, Y_i \leqslant 10000)$,representando as coordenadas dos pontos, para $1 \leqslant i \leqslant N$. Não há pontos coincidentes e não há dois pontos u e v distintos tais que $A$, $u$, $v$ ou $B$, $u$, $v$ sejam colineares.
+O programa desenvolvido recebe por parâmetro a entrada de um arquivo contendo em sua primeira linha um número $N$ de pontos no plano $\mathbb{R}^2$ e as coordenadas do eixo $X$ das âncoras $A$ e $B$, respectivamente. As linhas subsequentes a primeira correspondem às coordenadas dos $N$ pontos do conjunto $P$ a ser solucionado.
 
-O programa imprime uma linha contendo um inteiro, representando o número máximo de pontos de PP que podem ser ligados com interseção de segmentos apenas nas âncoras.
+O algorítimo então processa esses dados retornando uma solução que pode ser verificada por meio de dois arquivos também gerados por um parâmetro: um contendo o número de triângulos possíveis e o outro em forma de uma imagem renderizada como ''gráfico vetorial escalável'' (Scalable Vector Graphics, ou ''.svg'')\footnote{Trata-se de uma linguagem XML para descrever de forma vetorial desenhos e gráficos bidimensionais.}. Um terceiro arquivo em ''.svg'' é gerado contendo a entrada original dos dados para referência.
+
+O programa é executado no prompt de comando e recebe as passagens de parâmetro dos arquivos de entrada e saída:
+
+\begin{figure}[!h]
+\centering
+\begin{BVerbatim}
+$ ./hcamp -i [input] -o [output]
+\end{BVerbatim}
+\end{figure}
+
+A entrada e solução renderizada pode ser vista no exemplo da Figura \ref{fig:inrend}.
+
+\begin{figure}[!h]
+	\caption{Entrada e saída renderizadas.}
+	\label{fig:inrend}
+	\includegraphics[width=75mm]{input.png}
+	\hfill
+	\includegraphics[width=75mm]{output.png}\\
+	\footnotesize Fonte: autores
+\end{figure}
+
+\section{Implementação}
 
 O método em questão usado para resolver esse problema se baseia na exploração do sistema de coordenadas baricêntricas e na orientação dos segmentos de retas formados pela conexão dos pontos. Portanto em primeiro lugar é verificada a orientação das retas para isolar os casos em que elas se interceptam ou são colineares.
 
@@ -171,14 +194,12 @@ Logo em seguida precisa-se saber quando um ponto esta contido em um triangulo. U
 
 Verifica por meio da expressão de orientação da reta:
 
-\[(y2-y1) (x3-x2) - (y3-y2) (x2-x1)\]
-
-Se os pontos são colineares, e a orientação do triangulo (horário ou anti-horário)
-
-\begin{center}
-	\begin{tikzpicture}
+\begin{figure}[!h]
+	\caption{Determinando o ponto interno ao triângulo}
+	\begin{tikzpicture}[baseline]
+	\pgfplotsset{width=8cm}
 	\begin{axis}[
-	title={Figura 4a: Determinando o ponto interno ao triângulo},
+	title={},
 	xmin=0, xmax=80,
 	ymin=0, ymax=80,
 	xtick={0,20,40,60,80,100},
@@ -195,18 +216,15 @@ Se os pontos são colineares, e a orientação do triangulo (horário ou anti-ho
 	coordinates{
 		(10,0)(40,50)
 	};
-
+	
 	\addplot[mark=*] coordinates {(40,50)} node[pin=310:{$PQR>0$}]{} ;
 	
 	\end{axis}
 	\end{tikzpicture}
-	\footnotesize{\\Fonte: autores}
-\end{center}
-
-\begin{center}
-	\begin{tikzpicture}
+	\begin{tikzpicture}[baseline]
+	\pgfplotsset{width=8cm}
 	\begin{axis}[
-	title={Figura 4b: Determinando o ponto interno ao triângulo},
+	title={},
 	xmin=0, xmax=80,
 	ymin=0, ymax=80,
 	xtick={0,20,40,60,80,100},
@@ -229,11 +247,11 @@ Se os pontos são colineares, e a orientação do triangulo (horário ou anti-ho
 	\end{axis}
 	\end{tikzpicture}
 	\footnotesize{\\Fonte: autores}
-\end{center}
+\end{figure}
 
-\pagebreak
+\[(y2-y1) (x3-x2) - (y3-y2) (x2-x1)\]
 
-\section{Implementação}
+Se os pontos são colineares, e a orientação do triangulo (horário ou anti-horário)
 
 \begin{table}[!htbp]
 	\centering
