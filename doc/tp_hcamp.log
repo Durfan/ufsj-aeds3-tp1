@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.7.1)  2 SEP 2018 22:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.7.1)  2 SEP 2018 22:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -699,26 +699,21 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 35.
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (20.51424pt too wide) in paragraph at lines 41--42
-[]\OT1/lmr/m/n/12 Os pro-ble-mas em Ge-o-me-tria Com-pu-ta-ci-o-nal s~ao tra-ta
--dos em ter-mos de ob-je-tos geom^^Setricos
- []
-
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 47.
+(Font)              <12> on input line 45.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 47.
+(Font)              <8> on input line 45.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 47.
-[1
+(Font)              <6> on input line 45.
+ [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
-Overfull \hbox (29.30206pt too wide) in paragraph at lines 246--270
+Overfull \hbox (29.30206pt too wide) in paragraph at lines 244--268
  [][] 
  []
 
 [5]
-Overfull \hbox (5.48349pt too wide) in paragraph at lines 299--300
+Overfull \hbox (5.48349pt too wide) in paragraph at lines 297--298
 []\OT1/lmr/m/n/12 Um dos mai-o-res pro-ble-mas no de-sen-vol-vi-mento foi en-co
 n-trar um al-go-ritmo que possu^^S^^Psse
  []
@@ -750,7 +745,7 @@ e/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type
 1/public/lm/lmtt12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbo
 ls/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10
 .pfb>
-Output written on tp_hcamp.pdf (7 pages, 200282 bytes).
+Output written on tp_hcamp.pdf (7 pages, 201599 bytes).
 PDF statistics:
  79 PDF objects out of 1000 (max. 8388607)
  58 compressed objects within 1 object stream
