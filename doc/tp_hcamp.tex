@@ -322,6 +322,36 @@ A Tabela \ref{tab:funcoes} contém a lista das principais funções utilizadas n
 
 \section{Análise de Complexidade}
 
+\begin{BVerbatim}
+do {
+	R = CJT->head;
+	while (R != NULL) {
+		if (PQR(CJT,Q,R)) {
+			dots++;
+			insere(R->p,AUX);
+		}
+		R = R->next;
+	}
+	if (dots >= moredots) {
+		moredots = dots;
+		win = Q;
+		dump(MAX,0);
+		cpyCJT(AUX,MAX);
+	}
+	dots = 0;
+	dump(AUX,0);
+	Q = Q->next;
+} while (Q != NULL);
+	
+if (win) insere(win->p,plot);
+dump(CJT,0);
+cpyCJT(MAX,CJT);
+dump(MAX,1);
+dump(AUX,1);
+CJT->total++;
+return findMAX(CJT,plot);
+\end{BVerbatim}
+
 \[ \begin{split}
 f(n) &= 11 + (n+1)*\frac{n}{n-1}+\frac{n}{2}*\frac{1}{2n}+n+\frac{n}{2}+4n \\
 f(n) &= 11 + \frac{n^2+n}{n-1}+\frac{n}{4n}+\frac{n}{2}+5n \\
@@ -333,6 +363,7 @@ f(n) &= \frac{26n^2+27n-45}{4(n-1)}
 
 \begin{center}
 	\begin{tikzpicture}
+	\pgfplotsset{width=14cm}
 	\begin{axis}[
 	title={},
 	xmin=0, xmax=100,
