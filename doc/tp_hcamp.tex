@@ -194,12 +194,25 @@ Após os dados estarem disponíveis na memoria, a função que contem um algorí
 
 O teste recursivo então se repete sucessivamente para cada ponto interno em relação ao ponto inicialmente encontrado como sendo o de maior número de coordenadas (pontos $X_i,Y_i$), determinando o maior conjunto de elementos em relação ao conjunto anteriormente encontrado. O processo finaliza quando não existem mais coordenadas a serem encontradas.
 
-A função que determina se uma coordenada está ou não dentro de uma área formada pelo ponto e suas ancoras é derivada do método do produto vetorial entre duas retas.\cite{jules:test} Este consiste em calcular a orientação do segmento de reta formado entre as âncoras e o a ser ponto testado, em relação a orientação do segmento de reta formado com um ponto determinado como aquele a formar o triangulo.
+A função que determina se uma coordenada está ou não dentro de uma área formada pelo ponto e suas ancoras é derivada do método do produto vetorial entre duas retas.\cite{jules:test} Este consiste em calcular a orientação do segmento de reta formado entre as âncoras e o ponto a ser testado, em relação a orientação do segmento de reta formado com um ponto determinado como aquele a formar o triangulo.
 
 A equação que determina essa orientação é dada por:
 \[(y2-y1)*(x3-x2) - (y3-y2)*(x2-x1)\]
 
 Como o eixo $Y$ das âncoras são iguais a zero, a equação pode ser simplificada como:\\ \[y2*(x3-x2) - (y3-y2)*(x2-x1)\]
+
+Snippet do código em C com o teste de orientação:
+
+\begin{figure}[!h]
+	\begin{BVerbatim}
+	PaQR = Q->p.y*(R->p.x-Q->p.x)-(Q->p.x-P->Xa)*(R->p.y-Q->p.y);
+	PbQR = Q->p.y*(R->p.x-Q->p.x)-(Q->p.x-P->Xb)*(R->p.y-Q->p.y);
+	if (!PaQR || !PbQR) return 0; // colinear	
+	PaQR = (PaQR > 0)? 1 : 2; // clock wise 1, counter clock 2
+	PbQR = (PbQR > 0)? 1 : 2; // clock wise 1, counter clock 2
+	if (PaQR == 1 && PbQR == 2) return 1; // inside
+	\end{BVerbatim}
+\end{figure}
 
 Aplicando a equação entre os segmento de reta $\overline{PQ}$, sendo $P$ a âncora e $Q$ o ponto que forma o triângulo), com $\overline{PR}$ ($R$, ponto sendo testado), resulta no valor que determina a orientação da reta $\overline{PR}$ em relação a $\overline{PQ}$. No caso do resultado for maior que zero, a reta $\overline{PR}$ está no sentido horário a reta $\overline{PQ}$, caso seja menor do que zero, está está em sentido anti-horário à  $\overline{PQ}$.
 
@@ -263,11 +276,16 @@ A Figura \ref{fig:orientacao} demonstra esse o conceito.
 	\footnotesize \hphantom{spac}Fonte: autores
 \end{figure}
 
+E é pelo método de força bruta com o teste recursivo entre todos os pontos que são encontrados os triângulos que possuem sempre o maior numero de coordenadas em sua área. Resultando desse numero de triângulos encontrados o valor para a solução.
+
+A Tabela \ref{tab:funcoes} contém a lista das principais funções utilizadas no programa, uma descrição sucinta de suas finalidades e sua complexidade por tempo.
+
 \pagebreak
 
 \begin{table}[!htbp]
 	\centering
 	\caption{Funções do programa}
+	\label{tab:funcoes}
 	\renewcommand{\arraystretch}{1.5}
 	\begin{tabular}{L{3cm} L{10cm} c}
 		\toprule 
