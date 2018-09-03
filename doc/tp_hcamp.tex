@@ -36,11 +36,17 @@
 
 \section{Introdução}
 
-A computação é um instrumento muito útil para encaminhar a resolução de um problema. Podendo ele ser uma coisa simples, ou então, até mesmo algo mais elaborado. Tendo isso em vista, o primeiro trabalho prático da disciplina nos desafia a resolver o problema dos Hipercampos. O qual é visto em diversas  maratonas de programação, e pode ser resolvido de varias formas. Neste trabalho será aborada a solução julgada de melhor implementação por parte dos discentes.
+Geometria Computacional é um ramo da Ciência da Computação que estuda algoritmos e estruturas de dados para a resolução computacional de problemas geométricos. Além disso, alguns problemas puramente geométricos surgem do estudo de algoritmos e, por isso, também são considerados parte da geometria computacional.
+
+Os problemas em Geometria Computacional são tratados em termos de objetos geométricos elementares como pontos, retas, segmentos de reta, polígonos, etc. Em geral, o objetivo desta disciplina é resolver os problemas geométricos de forma eficiente, isto é, utilizando o menor número possível de operações simples sobre os elementos geométricos. A Geometria Computacional dá ênfase a complexidade computacional dos problemas e algoritmos estudados.
+
+Neste trabalho, é apresentado a solução para o problema denominado como Hipercampos. O qual pode ser visto em diversas maratonas de programação, e pode ser resolvido de varias formas.
 
 \subsection{Especificação do Problema}
 
-No problema especificado neste trabalho prático, temos um plano cartesiano em $\mathbb{R}^2$ onde são dadas duas âncoras, dois pontos onde $Y=0$ e os valores de $X$ variam de $A$ até $B$ formando assim um segmento de reta horizontal, tal que $0 < X_A < X_B$. E também se recebe como entrada um conjunto $P$ de $N$ pontos na forma $(X,Y)$ sendo $X$ e $Y$ maiores do que 0.
+No problema de Hipercampos, um plano cartesiano em $\mathbb{R}^2$ possui duas ''âncoras'', dois pontos onde $Y=0$ e os valores de seus eixo em $X$ variam de $X_A$ até $X_B$, formando assim um segmento de reta horizontal, tal que $0 < X_A < X_B$.
+
+Ao plano cartesiano também somam-se um conjunto $P$ de $N$ pontos $(X,Y)$, tal que $0 < X_i,Y_i \leqslant 10^4$.
 
 \begin{center}
 \begin{tikzpicture}
@@ -85,18 +91,12 @@ No problema especificado neste trabalho prático, temos um plano cartesiano em $
 \footnotesize{\\Fonte: autores}
 \end{center}
 
-Ao ligar um dos pontos contidos em P às âncoras, usando segmentos de reta, formamos um triangulo, deve-se ligar vários pontos, mas de modo que eles se interceptem apenas nas ancoras. Se expressando de uma maneira mais simples, deve-se achar o maior número de triângulos contidos um dentro do outro, que se cruzam apenas na base.
-
-Portanto o algoritmo trabalhado computa o número máximo de pontos que é possível ligar com interseção de segmentos apenas nas ancoras, de acordo com as entradas do usuário.
-
-\subsection{Entrada}
-
-A primeira linha da entrada contém três inteiros, $N(1 \leqslant N \leqslant 100)$, $X_A$ e $X_B$ $(0 < X_A < X_B \leqslant 10000)$ representando, respectivamente, o número de pontos no conjunto $P$ e as abscissas das âncoras $A$ e $B$. As $N$ linhas seguintes contêm, cada uma, dois inteiros $Xi$ e $Yi$ $(0 < X_i, Y_i \leqslant 10000)$,representando as coordenadas dos pontos, para $1 \leqslant i \leqslant N$. Não há pontos coincidentes e não há dois pontos u e v distintos tais que $A$, $u$, $v$ ou $B$, $u$, $v$ sejam colineares.
+O objetivo do problema é ligar os pontos contidos em $P$ às âncoras, formando assim um número máximo de triângulos sem que esses se interceptem. E para esse proposito é apresentado um algorítimo contido no programa apresentado neste trabalho.
 
 \begin{center}
 	\begin{tikzpicture}
 	\begin{axis}[
-	title={Figura 2: Triângulos formados a partir das âncoras.},
+	title={Figura 2: Triângulos formados sem o processamento.},
 	xmin=0, xmax=100,
 	ymin=0, ymax=100,
 	xtick={0,20,40,60,80,100},
@@ -131,6 +131,10 @@ A primeira linha da entrada contém três inteiros, $N(1 \leqslant N \leqslant 
 	\footnotesize{\\Fonte: autores}
 \end{center}
 
+\subsection{Entrada}
+
+A primeira linha da entrada contém três inteiros, $N(1 \leqslant N \leqslant 100)$, $X_A$ e $X_B$ $(0 < X_A < X_B \leqslant 10000)$ representando, respectivamente, o número de pontos no conjunto $P$ e as abscissas das âncoras $A$ e $B$. As $N$ linhas seguintes contêm, cada uma, dois inteiros $Xi$ e $Yi$ $(0 < X_i, Y_i \leqslant 10000)$,representando as coordenadas dos pontos, para $1 \leqslant i \leqslant N$. Não há pontos coincidentes e não há dois pontos u e v distintos tais que $A$, $u$, $v$ ou $B$, $u$, $v$ sejam colineares.
+
 \subsection{Saída}
 
 O programa imprime uma linha contendo um inteiro, representando o número máximo de pontos de PP que podem ser ligados com interseção de segmentos apenas nas âncoras.
@@ -138,7 +142,7 @@ O programa imprime uma linha contendo um inteiro, representando o número máxim
 \begin{center}
 	\begin{tikzpicture}
 	\begin{axis}[
-	title={Figura 3: Solução encontrada pelo programa.},
+	title={Figura 3: Solução encontrada pelo algoritimo.},
 	xmin=0, xmax=100,
 	ymin=0, ymax=100,
 	xtick={0,20,40,60,80,100},
