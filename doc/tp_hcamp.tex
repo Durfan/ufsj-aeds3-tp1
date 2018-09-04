@@ -11,6 +11,10 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
 
+\usepackage[ruled]{algorithm}
+\usepackage{algpseudocode}
+\newcommand{\LineComment}[1]{\Statex \hfill\textit{#1}}
+
 \usepackage{graphicx}
 \usepackage{indentfirst}
 \usepackage{booktabs}
@@ -321,6 +325,25 @@ A Tabela \ref{tab:funcoes} contém a lista das principais funções utilizadas n
 \end{table}
 
 \section{Análise de Complexidade}
+
+\alglanguage{pseudocode}
+\begin{algorithm}[h]
+	\small
+	\caption{Ache o conjunto máximo de triângulos}
+	\label{Algorithm:findMAX}
+	\begin{algorithmic}[1]
+		\Procedure{$\mathbf{findMAX}$}{Conjunto $P$}
+		\While {$n$}
+			\While {$n$}
+				\If {$n-1$ está dentro do triângulo testado}
+				\State \textbf{insira em outro conjunto}
+				\EndIf
+			\EndWhile
+		\EndWhile
+		\EndProcedure
+		\Statex
+	\end{algorithmic}
+\end{algorithm}
 
 \begin{BVerbatim}
 do {
