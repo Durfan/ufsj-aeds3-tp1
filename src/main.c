@@ -64,9 +64,9 @@ int main (int argc, char **argv) {
     stime = ru.ru_stime;
 
     printf(COLOR_YELL);
-    printf(" gettime  => %ld ms\n", ((end.tv_sec-start.tv_sec)*1000000L+end.tv_usec)-start.tv_usec);
-    printf(" ru_utime => %lds:%ldms\n", utime.tv_sec, utime.tv_usec);
-    printf(" ru_stime => %lds:%ldms\n", stime.tv_sec, stime.tv_usec);
+    printf(" gettime  => %ld\xC2\xB5s\n", ((end.tv_sec-start.tv_sec)*1000000L+end.tv_usec)-start.tv_usec);
+    printf(" ru_utime => %lds %ld\xC2\xB5s\n", (int64_t)utime.tv_sec, (int64_t)utime.tv_usec);
+    printf(" ru_stime => %lds %ld\xC2\xB5s\n", (int64_t)stime.tv_sec, (int64_t)stime.tv_usec);
     printf(COLOR_RESET);
 
   return 0; 

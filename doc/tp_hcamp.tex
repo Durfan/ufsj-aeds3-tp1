@@ -10,7 +10,6 @@
 \usepackage{amsfonts}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
-\usepackage{algorithm2e}
 
 \usepackage{graphicx}
 \usepackage{indentfirst}
@@ -367,17 +366,17 @@ f(n) &= \frac{26n^2+27n-45}{4(n-1)}
 	\centering
 	\caption{Tempos de execução em relação a entrada $n$}
 	\label{tab:tempos}
-	\begin{tabular}{rrrr}
+	\begin{tabular}{lrrr}
 		\toprule 
 		$n$ & $gettime()$ & $ru\_utime()$ & $ru\_stime()$ \\ 
 		\midrule
-		100 & 91751 ms & 9847 ms & 0 \\
-		500 & 1418852 ms & 154276 ms & 3435 ms \\
-		1000 & 2144396 ms & 559727 ms & 3290 ms \\
-		2000 & 5350661 ms & 2s 246933 ms & 3324 ms \\
-		4000 & 11219083 ms & 9s 167495 ms & 3333 ms \\
-		8000 & 40450777 ms & 38s 906846 ms & 3324 ms \\
-		16000 & 167955974 ms & 166s 90082 ms & 6662 ms \\
+		100 & 91751 $\mu$s & 9847 $\mu$s & 0 \\
+		500 & 1418852 $\mu$s & 154276 $\mu$s & 3435 $\mu$s \\
+		1000 & 2144396 $\mu$s & 559727 $\mu$s & 3290 $\mu$s \\
+		2000 & 5350661 $\mu$s & 2s 246933 $\mu$s & 3324 $\mu$s \\
+		4000 & 11219083 $\mu$s & 9s 167495 $\mu$s & 3333 $\mu$s \\
+		8000 & 40450777 $\mu$s & 38s 906846 $\mu$s & 3324 $\mu$s \\
+		16000 & 167955974 $\mu$s & 166s 90082 $\mu$s & 6662 $\mu$s \\
 		\bottomrule
 		\footnotesize Fonte: autores
 	\end{tabular}
@@ -391,11 +390,11 @@ f(n) &= \frac{26n^2+27n-45}{4(n-1)}
 	\begin{axis}[
 	title={},
 	xmin=100, xmax=16000,
-	ymin=0, ymax=170000,
+	ymin=0, ymax=170,
 	xlabel={Dados de entrada(n)},
 	ylabel={Tempo de execução(s)},
 	xtick={2000,4000,6000,8000,10000,12000,14000,16000},
-	ytick={20000,40000,60000,80000,100000,120000,140000,160000},
+	ytick={10,20,30,40,50,60,120,170},
 	xmajorgrids=true,
 	ymajorgrids=true,
 	grid style=dashed,
@@ -404,8 +403,8 @@ f(n) &= \frac{26n^2+27n-45}{4(n-1)}
 	
 	\addplot+[color=blue,mark size=2pt]
 	coordinates{
-		(100,91.751)(500,1418.852)(1000,2144.396)(2000,5350.661)(4000,11219.083)
-		(8000,40450.777)(16000,167955.974)
+		(100,0.091751)(500,1.418852)(1000,2.144396)(2000,5.350661)(4000,11.219083)
+		(8000,40.450777)(16000,167.955974)
 	};
 	\legend{gettime(),$n^2$}
 	\end{axis}
