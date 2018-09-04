@@ -10,6 +10,7 @@
 \usepackage{amsfonts}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
+\usepackage{algorithm2e}
 
 \usepackage{graphicx}
 \usepackage{indentfirst}
@@ -360,26 +361,52 @@ f(n) &= \frac{26n^2+27n-45}{4(n-1)}
 
 \[T(n)=aT(\frac{n}{b})+f(n)\]
 
+\pagebreak
 
-\begin{center}
+\begin{table}[!h]
+	\centering
+	\caption{Tempos de execução em relação a entrada $n$}
+	\label{tab:tempos}
+	\begin{tabular}{llll}
+		\toprule 
+		Entrada $n$ & $gettime()$ & $ru\_utime()$ & $ru\_stime()$ \\ 
+		\midrule
+		100 & 85628 ms & 10348 ms & 0 \\
+		1000 & 3432594 ms & 559505 ms & 6626 ms \\
+		10000 & 64448993 ms & 62s 729319 ms & 9990 ms \\ 
+		\bottomrule
+		\footnotesize Fonte: autores
+	\end{tabular}
+\end{table}
+
+\begin{figure}[!h]
+	\caption{Tempos de execução em relação a entrada $n$.}
+	\label{fig:orientacao}
 	\begin{tikzpicture}
-	\pgfplotsset{width=14cm}
+	\pgfplotsset{width=15cm}
 	\begin{axis}[
 	title={},
-	xmin=0, xmax=100,
-	ymin=0, ymax=360,
-	xlabel={Dados de entrada},
-	ylabel={Tempo de execução},
-	xtick={0,20,40,60,80,100},
-	ytick={0,60,120,180,240,300,360},
+	xmin=0, xmax=10000,
+	ymin=0, ymax=70000,
+	xlabel={Dados de entrada(n)},
+	ylabel={Tempo de execução(s)},
+	xtick={1000,2500,5000,7500,10000},
+	ytick={5000,10000,25000,50000,70000},
 	grid style=dashed,
-	%legend style={draw=none},
+	legend style={draw=none},
 	]
 	
+	\addplot+[color=black,mark size=2pt]
+	coordinates{
+		(100,85.628)(1000,3432.594)(10000,64448.993)
+	};
+	\legend{gettime}
 	\end{axis}
 	\end{tikzpicture}
-	\footnotesize{\\Fonte: autores}
-\end{center}
+	\footnotesize \hphantom{spacessss}Fonte: autores
+\end{figure}
+
+\pagebreak
 
 \section{Considerações finais}
 
@@ -424,7 +451,7 @@ O uso de um algorítimo recursivo de força bruta foi o que mais se aproximou de
 	};
 	\end{axis}
 	\end{tikzpicture}
-		\begin{tikzpicture}[baseline]
+	\begin{tikzpicture}[baseline]
 	\pgfplotsset{width=8.3cm}
 	\begin{axis}[
 	title={},
@@ -505,6 +532,8 @@ O uso de um algorítimo recursivo de força bruta foi o que mais se aproximou de
 	\end{axis}
 	\end{tikzpicture}
 \end{figure}
+
+\pagebreak
 
 O algorítimo sempre escolhe o triangulo com o maior número de coordenadas em sua área, não considerando que essas possam ser eliminadas em teste subsequentes. Quanto maior a área do triangulo testado, maior sera a possibilidade de erros. E embora o programa cumpra a função de determinar um número de triângulos que não se interceptam, esse não é preciso quanto ao valor máximo que pode ser obtido.
 
