@@ -367,13 +367,17 @@ f(n) &= \frac{26n^2+27n-45}{4(n-1)}
 	\centering
 	\caption{Tempos de execução em relação a entrada $n$}
 	\label{tab:tempos}
-	\begin{tabular}{llll}
+	\begin{tabular}{rrrr}
 		\toprule 
-		Entrada $n$ & $gettime()$ & $ru\_utime()$ & $ru\_stime()$ \\ 
+		$n$ & $gettime()$ & $ru\_utime()$ & $ru\_stime()$ \\ 
 		\midrule
-		100 & 85628 ms & 10348 ms & 0 \\
-		1000 & 3432594 ms & 559505 ms & 6626 ms \\
-		10000 & 64448993 ms & 62s 729319 ms & 9990 ms \\ 
+		100 & 91751 ms & 9847 ms & 0 \\
+		500 & 1418852 ms & 154276 ms & 3435 ms \\
+		1000 & 2144396 ms & 559727 ms & 3290 ms \\
+		2000 & 5350661 ms & 2s 246933 ms & 3324 ms \\
+		4000 & 11219083 ms & 9s 167495 ms & 3333 ms \\
+		8000 & 40450777 ms & 38s 906846 ms & 3324 ms \\
+		16000 & 167955974 ms & 166s 90082 ms & 6662 ms \\
 		\bottomrule
 		\footnotesize Fonte: autores
 	\end{tabular}
@@ -386,21 +390,24 @@ f(n) &= \frac{26n^2+27n-45}{4(n-1)}
 	\pgfplotsset{width=15cm}
 	\begin{axis}[
 	title={},
-	xmin=0, xmax=10000,
-	ymin=0, ymax=70000,
+	xmin=100, xmax=16000,
+	ymin=0, ymax=170000,
 	xlabel={Dados de entrada(n)},
 	ylabel={Tempo de execução(s)},
-	xtick={1000,2500,5000,7500,10000},
-	ytick={5000,10000,25000,50000,70000},
+	xtick={2000,4000,6000,8000,10000,12000,14000,16000},
+	ytick={20000,40000,60000,80000,100000,120000,140000,160000},
+	xmajorgrids=true,
+	ymajorgrids=true,
 	grid style=dashed,
 	legend style={draw=none},
 	]
 	
-	\addplot+[color=black,mark size=2pt]
+	\addplot+[color=blue,mark size=2pt]
 	coordinates{
-		(100,85.628)(1000,3432.594)(10000,64448.993)
+		(100,91.751)(500,1418.852)(1000,2144.396)(2000,5350.661)(4000,11219.083)
+		(8000,40450.777)(16000,167955.974)
 	};
-	\legend{gettime}
+	\legend{gettime(),$n^2$}
 	\end{axis}
 	\end{tikzpicture}
 	\footnotesize \hphantom{spacessss}Fonte: autores
