@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.7.1)  4 SEP 2018 17:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.7.1)  5 SEP 2018 18:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -556,44 +556,7 @@ File: tikzlibraryplotmarks.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
 
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
 File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
-))) (/usr/share/texmf-dist/tex/latex/algorithms/algorithm.sty
-Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
-nment
-
-(/usr/share/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count132
-\float@exts=\toks40
-\float@box=\box40
-\@float@everytoks=\toks41
-\@floatcapt=\box41
-)
-(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-)
-\@float@every@algorithm=\toks42
-\c@algorithm=\count133
-)
-(/usr/share/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
-Package: algpseudocode 
-
-(/usr/share/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
-Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
-
-Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count134
-\c@ALG@rem=\count135
-\c@ALG@nested=\count136
-\ALG@tlm=\skip46
-\ALG@thistlm=\skip47
-\c@ALG@Lnr=\count137
-\c@ALG@blocknr=\count138
-\c@ALG@storecount=\count139
-\c@ALG@tmpcounter=\count140
-\ALG@tmplength=\skip48
-)
-Document Style - pseudocode environments for use with the `algorithmicx' style
-) (/usr/share/texmf-dist/tex/latex/tools/indentfirst.sty
+))) (/usr/share/texmf-dist/tex/latex/tools/indentfirst.sty
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
 (/usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty
@@ -608,12 +571,12 @@ Package: booktabs 2016/04/27 v1.618033 publication quality tables
 \cmidrulesep=\dimen190
 \cmidrulekern=\dimen191
 \defaultaddspace=\dimen192
-\@cmidla=\count141
-\@cmidlb=\count142
+\@cmidla=\count132
+\@cmidlb=\count133
 \@aboverulesep=\dimen193
 \@belowrulesep=\dimen194
-\@thisruleclass=\count143
-\@lastruleclass=\count144
+\@thisruleclass=\count134
+\@lastruleclass=\count135
 \@thisrulewidth=\dimen195
 )
 (/usr/share/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
@@ -621,28 +584,18 @@ Package: fancyvrb 2008/02/07
 
 Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
 <2008/02/07> (tvz)
-\FV@CodeLineNo=\count145
+\FV@CodeLineNo=\count136
 \FV@InFile=\read2
-\FV@TabBox=\box42
-\c@FancyVerbLine=\count146
-\FV@StepNumber=\count147
+\FV@TabBox=\box40
+\c@FancyVerbLine=\count137
+\FV@StepNumber=\count138
 \FV@OutFile=\write4
-) (/usr/share/texmf-dist/tex/latex/tools/array.sty
-Package: array 2018/04/07 v2.4g Tabular extension package (FMi)
-\col@sep=\dimen196
-\ar@mcellbox=\box43
-\extrarowheight=\dimen197
-\NC@list=\toks43
-\extratabsurround=\skip49
-\backup@length=\skip50
-\ar@cellbox=\box44
-)
-(/usr/share/texmf-dist/tex/latex/natbib/natbib.sty
+) (/usr/share/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip51
-\bibsep=\skip52
+\bibhang=\skip46
+\bibsep=\skip47
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count148
+\c@NAT@ctr=\count139
 )
 (/usr/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
@@ -657,19 +610,19 @@ LaTeX Warning: Label `fig:orientacao' multiply defined.
 )
 \openout1 = `tp_hcamp.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 41.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 32.
  (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -709,17 +662,17 @@ File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count149
-\scratchdimen=\dimen198
-\scratchbox=\box45
-\nofMPsegments=\count150
-\nofMParguments=\count151
-\everyMPshowfont=\toks44
-\MPscratchCnt=\count152
-\MPscratchDim=\dimen199
-\MPnumerator=\count153
-\makeMPintoPDFobject=\count154
-\everyMPtoPDFconversion=\toks45
+\scratchcounter=\count140
+\scratchdimen=\dimen196
+\scratchbox=\box41
+\nofMPsegments=\count141
+\nofMParguments=\count142
+\everyMPshowfont=\toks40
+\MPscratchCnt=\count143
+\MPscratchDim=\dimen197
+\MPnumerator=\count144
+\makeMPintoPDFobject=\count145
+\everyMPtoPDFconversion=\toks41
 ) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -776,54 +729,54 @@ ABD: EveryShipout initializing macros
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.16}).
 
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 42.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 33.
 (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 42.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 33.
 
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 42.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 33.
 
 
 (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 42.
+(Font)              <14.4> on input line 33.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 42.
+(Font)              <10> on input line 33.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 42.
-LaTeX Font Info:    Try loading font information for U+msa on input line 42.
+(Font)              <7> on input line 33.
+LaTeX Font Info:    Try loading font information for U+msa on input line 33.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 42.
+LaTeX Font Info:    Try loading font information for U+msb on input line 33.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 52.
+(Font)              <12> on input line 43.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 52.
+(Font)              <8> on input line 43.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 52.
+(Font)              <6> on input line 43.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (6.45393pt too wide) in paragraph at lines 139--165
+Overfull \hbox (6.45393pt too wide) in paragraph at lines 130--156
 [][] []
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 171.
-LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 177
+(Font)              <5> on input line 162.
+LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 168
 .
 (/usr/share/texmf-dist/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -831,82 +784,93 @@ File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 <input.png, id=18, 401.5pt x 401.5pt>
 File: input.png Graphic file (type png)
 <use input.png>
-Package pdftex.def Info: input.png  used on input line 187.
+Package pdftex.def Info: input.png  used on input line 179.
 (pdftex.def)             Requested size: 213.39566pt x 213.40048pt.
 <output.png, id=20, 401.5pt x 401.5pt>
 File: output.png Graphic file (type png)
 <use output.png>
-Package pdftex.def Info: output.png  used on input line 189.
+Package pdftex.def Info: output.png  used on input line 181.
 (pdftex.def)             Requested size: 213.39566pt x 213.40048pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 206--206
-
- []
-
-[3 <./input.png> <./output.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 258--288
+[2] [3 <./input.png> <./output.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 236--266
 [][] []
  []
 
 [4]
-Overfull \hbox (29.30206pt too wide) in paragraph at lines 301--325
- [][] 
+Overfull \hbox (3.30746pt too wide) in paragraph at lines 289--289
+[]$\OML/lmm/m/it/12 openFILE\OT1/lmr/m/n/12 ()$| 
  []
 
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 335.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Overfull \hbox (2.56166pt too wide) in paragraph at lines 290--290
+[]$\OML/lmm/m/it/12 saveFILE\OT1/lmr/m/n/12 ()$| 
+ []
 
-[5] [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 434--436
+
+Overfull \hbox (2.86734pt too wide) in paragraph at lines 296--296
+[]$\OML/lmm/m/it/12 findMAX\OT1/lmr/m/n/12 ()$| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--297
+[]$\OML/lmm/m/it/12 soluciona\OT1/lmr/m/n/12 ()$
+ []
+
+
+Overfull \hbox (6.53976pt too wide) in paragraph at lines 278--302
 [][]
  []
 
-[8]
-Overfull \hbox (6.45393pt too wide) in paragraph at lines 482--563
+[5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 397--399
+[][]
+ []
+
+[7]
+Overfull \hbox (6.45393pt too wide) in paragraph at lines 445--526
 [][] []
  []
 
 
-Overfull \hbox (6.45393pt too wide) in paragraph at lines 482--563
+Overfull \hbox (6.45393pt too wide) in paragraph at lines 445--526
 [] [] 
  []
 
-[9] [10] (./tp_hcamp.bbl) [11] (./tp_hcamp.aux)
+[8] (./tp_hcamp.bbl) [9] (./tp_hcamp.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 25386 strings out of 492649
- 626149 string characters out of 6135779
- 829227 words of memory out of 5000000
- 28779 multiletter control sequences out of 15000+600000
- 71730 words of font info for 69 fonts, out of 8000000 for 9000
+ 24687 strings out of 492649
+ 616412 string characters out of 6135779
+ 818505 words of memory out of 5000000
+ 28106 multiletter control sequences out of 15000+600000
+ 44374 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,20n,127p,832b,2280s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dis
-t/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mat
-hsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}</usr/share/texmf
--dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/s
+ 73i,20n,127p,832b,2274s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf-dis
+t/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm
+-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf
+-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf-dist/fonts/type1/publi
+c/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/s
 hare/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/t
 ype1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb
 ></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/
 fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lm
 r7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-
 dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public
-/lm/lmtt12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam1
-0.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on tp_hcamp.pdf (11 pages, 428948 bytes).
+/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/sha
+re/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-
+dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on tp_hcamp.pdf (9 pages, 404528 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
- 76 compressed objects within 1 object stream
+ 103 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
