@@ -15,6 +15,7 @@
 \usepackage{indentfirst}
 \usepackage{booktabs}
 \usepackage{fancyvrb}
+\usepackage{quoting}
 
 \usepackage[numbers]{natbib}
 \usepackage{url}
@@ -305,11 +306,13 @@ A Tabela \ref{tab:funcoes} contém a lista das principais funções utilizadas n
 
 Pergunta:
 
-\begin{quote}
+\begin{quoting}[rightmargin=0cm,leftmargin=4cm]
+	\begin{singlespace}
+	{\footnotesize  
 	So I had to insert $N$ elements in random order into a size-N array, but I am not sure about the time complexity of the program.
 
-	The program is basically:
-	\begin{figure}[!h]
+	The program is basically:\\
+
 	\begin{BVerbatim}
 	for (i = 0 -> n-1) {
 		index = random (0, n); // (n is exclusive)
@@ -319,12 +322,16 @@ Pergunta:
 		array[index] = n;
 	}
 	\end{BVerbatim}
-	\end{figure}
-\end{quote}
+
+	}
+	\end{singlespace}
+\end{quoting}
 
 Resposta:
 
-\begin{quote}
+\begin{quoting}[rightmargin=0cm,leftmargin=4cm]
+	\begin{singlespace}
+	{\footnotesize  
 	First consider the inner loop. When do we expect to have our first success (find an open position) when there are $i$ values already in the array? For this we use the geometric distribution:
 	\[Pr(X = k) = (1-p)^{k-1} p\]
 	
@@ -342,7 +349,9 @@ Resposta:
 	\end{split} \]
 	
 	Which is n times the $nth$ harmonic number and is approximately $\ln(n) + gamma$, where $gamma$ is a constant. So overall, the number of attempts is approximately $n * (\ln(n) + gamma)$, which is $O(n \log n)$. Remember that this is only the expectation and there is no true upper bound since the inner loop is random; it may never find an open spot.
-\end{quote}
+	}
+	\end{singlespace}
+\end{quoting}
 
 \subsection{Tempos de computação}
 
