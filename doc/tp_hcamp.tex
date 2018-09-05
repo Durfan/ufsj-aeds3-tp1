@@ -309,16 +309,14 @@ Pergunta:
 	So I had to insert $N$ elements in random order into a size-N array, but I am not sure about the time complexity of the program.
 
 	The program is basically:
-	
 	\begin{figure}[!h]
-	\centering
 	\begin{BVerbatim}
-	
 	for (i = 0 -> n-1) {
 		index = random (0, n); // (n is exclusive)
-		while (array[index] != null)
-		index = random (0, n);
-		array[index] = n
+		while (array[index] != null) {
+			index = random (0, n);
+		}
+		array[index] = n;
 	}
 	\end{BVerbatim}
 	\end{figure}
@@ -343,7 +341,7 @@ Resposta:
 	&= n * \sum_{i=1}^{n} \frac{1}{i}
 	\end{split} \]
 	
-	Which is n times the nth harmonic number and is approximately $ln(n) + gamma$, where $gamma$ is a constant. So overall, the number of attempts is approximately $n * (ln(n) + gamma)$, which is $O(nlog n)$. Remember that this is only the expectation and there is no true upper bound since the inner loop is random; it may never find an open spot.
+	Which is n times the $nth$ harmonic number and is approximately $\ln(n) + gamma$, where $gamma$ is a constant. So overall, the number of attempts is approximately $n * (\ln(n) + gamma)$, which is $O(n \log n)$. Remember that this is only the expectation and there is no true upper bound since the inner loop is random; it may never find an open spot.
 \end{quote}
 
 \subsection{Tempos de computação}

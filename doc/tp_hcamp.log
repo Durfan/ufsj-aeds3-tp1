@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.7.1)  5 SEP 2018 18:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.7.1)  5 SEP 2018 18:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -826,17 +826,17 @@ Overfull \hbox (6.53976pt too wide) in paragraph at lines 278--302
  []
 
 [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 397--399
+Underfull \hbox (badness 10000) in paragraph at lines 395--397
 [][]
  []
 
 [7]
-Overfull \hbox (6.45393pt too wide) in paragraph at lines 445--526
+Overfull \hbox (6.45393pt too wide) in paragraph at lines 443--524
 [][] []
  []
 
 
-Overfull \hbox (6.45393pt too wide) in paragraph at lines 445--526
+Overfull \hbox (6.45393pt too wide) in paragraph at lines 443--524
 [] [] 
  []
 
@@ -867,7 +867,7 @@ dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public
 /lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/sha
 re/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on tp_hcamp.pdf (9 pages, 404528 bytes).
+Output written on tp_hcamp.pdf (9 pages, 404625 bytes).
 PDF statistics:
  103 PDF objects out of 1000 (max. 8388607)
  73 compressed objects within 1 object stream
