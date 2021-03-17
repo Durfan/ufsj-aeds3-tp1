@@ -1,3 +1,8 @@
+#ifndef INCLUDE_MAIN_H
+#define INCLUDE_MAIN_H
+
+#define _GNU_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,7 +12,6 @@
 #include "data.h"
 #include "files.h"
 #include "hipercampo.h"
-#include "gnuplot.h"
 #include "valida.h"
 
 #define NisValide(ncoords) (( ncoords >= 1 && ncoords <= 100 ) ? 1 : 0)
@@ -21,3 +25,6 @@
 #define DEBUG 1
 
 typedef enum {false,true} bool;
+
+//#pragma message __FILE__
+#endif // INCLUDE_MAIN_H

@@ -1,3 +1,6 @@
+#ifndef INCLUDE_DATA_H
+#define INCLUDE_DATA_H
+
 typedef unsigned short anchor_t;
 typedef unsigned short ncoords_t;
 typedef unsigned short ponto_t;
@@ -28,3 +31,6 @@ int sizeCJT(conjunto_t *CJT);
 void dump(conjunto_t *CJT, int del);
 void delCJT(conjunto_t *CJT);
 int isEmpty(conjunto_t *CJT);
+
+//#pragma message __FILE__
+#endif // INCLUDE_DATA_H
