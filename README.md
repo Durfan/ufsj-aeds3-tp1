@@ -2,7 +2,7 @@
 
 Primeiro Trabalho Prático de AED's III.
 
-![](./input.svg)
+![](./doc/input.svg)
 
 ## Pre-requisitos
 
